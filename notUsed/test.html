@@ -1,34 +1,15 @@
-<pre>
-    <!DOCTYPE html>
-    <html>
-        <input type="text" id="age" value="your age">
-        <input type="text" id="adult" value="(y or n)">
-        <input type="button" onclick="checkAge()" value="submit">
-    <p id="answer"></p>
-    <script>
-    var age = document.getElementById("age").innerHTML;
-    var adult = document.getElementById("adult").innerHTML;
-    var result = document.getElementById("answer").innerHTML;
-    var oldEnough = false;
-    function checkAge(){
-        if(age.value >= 18){
-            oldEnough = true;
-        }
-        else{
-            oldEnough = false;
-        }
-        if(oldEnough == false){
-            if(adult.value == "y"){
-                result = "You are not old enough, but have an adult with you.";
-            }
-            else{
-                result = "You are not old enough and are unaccompanied."
-            }
-        }
-        else{
-            result = "You are old enough."
-        }
-    }
-    </script>
-    </html>
-    </pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            let verify = localStorage.getItem('greenbeer');
+            if( !verify ){window.location.href="verification.html";}
+        </script>
+</body>
+</html>

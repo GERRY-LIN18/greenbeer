@@ -1,3 +1,6 @@
+let verify = localStorage.getItem('greenbeer');
+if( !verify ){window.location.href="verification.html";}
+
 
 window.addEventListener("load", function(){
 
