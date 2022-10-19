@@ -1,0 +1,462 @@
+
+.sub-page-top-cover{
+    padding-top: 70px;
+    position: relative;
+    background-color: #F6D042;
+}
+.sub-page-top-cover-img{
+    position: relative;
+    margin-bottom: 30px;
+}
+.sub-page-top-cover-img-top{
+    height: 300px;
+}
+.sub-page-top-cover-img-down{
+    position:absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+}
+div[class^="sub-page-top-cover-img-"]  img{
+    object-fit:cover; 
+    vertical-align: middle;
+}
+
+.sub-page-top-cover-title h1{
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right:0 ;
+    margin: auto;
+    font-family: 'Boogaloo', cursive;
+    font-size: 150px;
+    color: #ebebeb;
+    -webkit-text-stroke: 5px #006837;
+    line-height: 150px;
+}
+
+.page-shopping-cart h2, .page-greenstore h2,
+.about-us h2, .product-slogan h2 , 
+.page-findus h2 ,.login h1, .product-introduction h1{
+    font-family: 'Acme', sans-serif;
+    font-size: 36px;
+    line-height: 50px;
+    text-align: center;
+}
+.our-product-slogan p{
+    font-family: 'Acme', sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+}
+.page-findus{
+    text-align: center;
+}
+
+.shopping-cart-check{
+    text-align: center;
+    padding: 10px 0;
+}
+
+.shopping-cart-flex{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 1000px;
+    padding: 10px;
+    margin: auto;
+    background-color: #F6D042;
+
+}
+
+.shopping-cart-box-title{
+    border-bottom: 1px solid #888;
+}
+.shopping-cart-box-title, .shopping-cart-box-purchase-item{
+    display: flex;
+    padding:10px;
+
+}
+
+.cart-item , .purchase-cart-item{
+    justify-content: center;
+    width: 200px;
+    display: flex;
+    
+}
+.cart-price, .cart-quantity, .cart-total,
+.purchase-cart-price, .purchase-cart-quantity,
+.purchase-cart-total{
+    width: 120px;
+    text-align: center;
+    margin: auto;
+}
+
+.cart-icon-cancel, 
+.purchase-cart-icon-cancel{
+    margin: auto;
+    width: 20px;
+}
+
+.purchase-cart-quantity input{
+    width: 20px;
+    vertical-align: middle;
+}
+.purchase-cart-item-img {
+    width: 100px;
+    height: 100px;
+}
+.purchase-cart-item-img img{
+    object-fit: fill;
+}
+.purchase-cart-item-name {
+    margin: auto;
+}
+.coupon-box-border{
+    width: 290px;
+    height: 200px;
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px;
+}
+
+#coupon {
+    height: 24px;
+}
+.subtotal-box{
+    padding-top: 80px;
+}
+.subtotal-box, .total-box{
+    display: flex;
+
+}
+.shopping-cart-box{
+    flex-grow: 1;
+}
+.shopping-cart-box, .coupon-code, .subtotal-box{
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.total-box{
+    font-size: 24px;
+    line-height: 30px;
+}
+.subtotal-price, .total-price{
+    flex-grow: 1;
+    text-align: right;
+}
+.btn-coupon-apply{
+    background-color: #F6D042;
+    font-size: 20px;
+    vertical-align: middle;
+}
+.btn-checkout{
+    width: 300px;
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    font-size: 24px;
+    background-color: #F6D042;
+    margin-left: 15px;
+    color:#222;
+}
+.btn-checkout:hover, .btn-coupon-apply:hover{
+    background-color: #fff;
+}
+
+/* ******************** greenstore*/
+
+.catalog p {
+    text-align: center;
+    margin: 20px;
+}
+.catalog-wine-box{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.catalog-wine-card{
+    width: 280px;
+    height: 380px;
+    text-align: center;
+    margin: 10px;
+}
+.catalog-wine-card-img{
+    width: 250px;
+    height: 250px;
+    margin: auto;
+}
+
+.catalog-wine-card-img img{
+    object-fit:contain;
+}
+.catalog-wine-card-name{
+    font-size: 24px;
+    padding: 5px;
+
+}
+.catalog-wine-card-price{
+    font-size: 20px;
+    line-height: 30px;
+    
+}
+.add-to-cart{
+    display: flex;
+    justify-content: center;
+}
+.add-to-cart input{
+    width: 30px;
+    border: 2px solid #F6D042;
+    height: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold;
+}
+.add-to-cart button{
+    width: fit-content;
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #F6D042;
+    border: 2px solid #F6D042;
+    border-left: 0px;
+}
+.add-to-cart button:hover {
+background-color: #fff;
+
+}
+/* ******************** about-us*/
+
+.about-us h2, .product-slogan h2{
+    text-align: left;
+}
+.about-us p , .product-slogan p{
+    font-size: 16px;
+    line-height: 22px;
+}
+.about-us span{
+    font-size: 14px;
+    color: #666;
+}
+
+.taiwan-leader , .product-slogan {
+    padding: 20px 0;
+    width: 1000px;
+    margin: auto;
+}
+
+.our-history, .sustainability{
+    display: flex;
+    width: 1200px;
+    margin: 20px auto;
+    align-items: center;
+    justify-content: center;
+}
+.our-history-txt ,.sustainability-txt{
+    width: 500px;
+    margin:50px;
+}
+.sustainability-txt{
+}
+.our-history-img, .sustainability-img{
+    width: 500px;
+    height: 400px;
+}
+.our-history-img img, .sustainability-img img{
+    object-fit: cover;
+}
+
+.brewing-beer {
+    width: 100%;
+    box-sizing: border-box;
+    background-image: url(pic/beer_17.jpg);
+    background-size:cover;
+    background-position: center bottom;
+    height: 400px;
+    
+}
+.brewing-beer-txt {
+    padding: 150px 50px;
+    width: 1000px;
+    margin: 20px auto;
+
+}
+.brewing-beer-txt h2, .brewing-beer-txt p ,
+.brewing-beer-txt span{
+    color: #ebebeb;
+}
+/* ******************** product*/
+
+.product-box {
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: center;
+}
+.product-card{
+    width: 396px;
+    height: 396px;
+    background-color:#006837;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-card:nth-child(2n){
+    background-color: #F6D042;
+}
+
+.product-card-name{
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 20px;
+    color: #222222;
+}
+
+.product-card:nth-child(2n+1) p{
+    color: #ebebeb;
+
+}
+.product-card-img {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    margin-top: 75px;
+    transition: .3s;
+}
+
+.product-card-img:hover {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    margin-top: 50px;
+}
+.product-card-img img{
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+.map-box{
+    margin: auto;
+    margin: 20px 0;
+}
+.our-product{
+    display: flex;
+    width: 1200px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    text-align: center;
+    gap: 100px;
+    
+}
+.our-product-word{
+    width: 300px;
+}
+.our-product-img {
+    width: 300px;
+    height: 500px;
+}
+.our-product-img img{
+    object-fit: contain;
+}
+
+/* ******************** login*/
+.login {
+    padding: 100px;
+}
+.login-box {
+    margin: 40px;
+    padding-top: 40px;
+    width: 350px;
+    margin:auto;
+}
+
+.login .container{
+    width: 500px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column ;
+}
+.login label {
+    width: 300px;
+    font-size: 22px;
+}
+.login .flex input {
+    width: 350px;
+    height: 30px;
+    margin: 5px 0;
+}
+.login-box input{
+    border: 1px solid block;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.submit {
+    padding: 5px;
+    text-align: center;
+}
+.submit button{
+    display: inline-block;
+    width: 100px;
+    height: 35px;
+    font-family: 'Acme', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    background-color: #F6D042;
+}
+/* ******************** product-introduction*/
+.product-introduction span{
+    font-size: 14px;
+    line-height: 50px;
+}
+.product-introduction{
+    /* background:radial-gradient(ellipse at center,#F6D042,#006837); */
+}
+/* .sub-page-top-cover.product-introduction.sub-page-top-cover-img{
+    height: 200px;
+    border: 1px solid red;
+} */
+
+/* ******************** product-introduction*/
+section.event{
+    width: 1200px;
+    height: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1f;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.event-card:first-child {
+    background-image: url('pic/beer_20.jpg');
+    grid-row-start: 1;
+    grid-row-end:3 ;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.event-card:nth-child(2){
+    background-image: url('pic/beer_23.jpg');
+}
+.event-card:nth-child(3){
+    background-image: url('pic/beer_22.jpg');
+}
+.event-card:nth-child(4){
+    background-image: url('pic/beer_23.jpg');
+}
+.event-card:nth-child(5){
+    background-image: url('pic/beer_22.jpg');
+    grid-row-start: 4;
+    grid-row-end:5 ;
+}
+.event-card:nth-child(6){
+    background-image: url('pic/beer_22.jpg');
+    grid-row:span 2;
+    grid-column: span 2;
+}

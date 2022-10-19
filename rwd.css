@@ -1,0 +1,971 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ******************** */
+
+.container{
+    max-width: 1200px;
+    margin:auto;
+    box-sizing: border-box;
+}
+
+p, a, h1, h2, h3,h4, div, span{
+    color: #222222;
+}
+p{
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+h3{
+    font-family: 'Acme', sans-serif;
+    font-size: 1.4rem;
+}
+a{ 
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn a{
+    display: inline-block;
+    width: 10rem;
+    padding: 0.65189%;
+    margin: 1.303780%;
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.6rem;
+    line-height: 1.4rem;
+    border-radius: 1.25rem;
+    transition: .2s;
+    border: 0.3125rem solid transparent;
+    background-color: #006837;
+    color: #fff;
+}
+
+
+
+img {
+    width: 100%;
+    height: 100%;
+}
+h1 {
+    text-align: center;
+}
+
+section h2{
+    font-family: 'Boogaloo', cursive;
+    font-size: 4rem;
+    text-align: center;
+    letter-spacing: -0.1rem;
+    line-height: 5rem;
+
+}
+
+/* ******************** header*/
+
+.warning-sign, .main-header, .main-header-bg {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+.warning-sign{
+    left:0;
+    bottom: 0;
+    background-color: #000;    
+    
+}
+.main-header-bg {
+    top: 0;
+    left:0;
+    height: 70px;
+    background-color: #F6D042;
+    transition: .3s;
+}
+
+.warning-sign-slogan{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    color: #fff;
+    padding: 10px 0;
+}
+.main-header {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;  
+    align-items: center;
+    max-width: 1200px;
+    height: 70px;
+    padding: 10px;
+    background-color: #F6D042;
+    transition: .3s;
+}
+#menu-switch ,.menu-switch{
+    display: none;
+}
+
+
+.header_logo {
+    width: 100px;
+    height: 50px;
+    vertical-align: middle;
+}
+.header_logo .logo img {
+    object-fit: contain;
+}
+
+
+.main-nav{
+    width: max-content;
+    padding: .2rem;
+    box-sizing: border-box;
+}
+
+
+ .main-nav a, .main-nav-member-shop .bi{
+    border-radius: 0.3rem;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    font-size: .8rem;
+    padding: .4rem;
+    margin: .2rem;
+    transition: .3s;
+}
+
+
+/* ******************** mainpage-top-cover*/
+.mainpage-top-cover{
+    margin-top: 70px;
+    position: relative;
+    background-color: #F6D042;
+    height: 70vh;
+    min-height: 450px;
+    transition: .3s;
+}
+
+.mainpage-top-cover-img-top{
+    width: 100%;
+    height: 70vh;
+    min-height: 450px;
+}
+
+.mainpage-top-cover-img-down{   
+    width: 100%;
+    position:absolute;
+    bottom: 0;
+}
+
+.mainpage-top-cover-img img{
+    object-fit:cover; 
+    vertical-align: middle;
+}
+
+.mainpage-top-cover-title{
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.mainpage-top-cover-title .easy{
+    font-family: 'Acme', sans-serif;
+    font-size: 3rem;
+    color: white;
+    line-height: 3.2rem;
+}
+.mainpage-top-cover-title .drink{
+    font-family: 'Boogaloo', cursive;
+    font-size: 4rem;
+    line-height: 3rem;
+    color: #F6D042;
+}
+.mainpage-top-cover-title h1 {
+    font-family: 'Boogaloo', cursive;
+    font-size: 7.5rem;
+    color:  #006837;
+    -webkit-text-stroke: 0.1rem #fff;
+    line-height: 6.5rem;
+}
+
+/* ******************** mainpage-find-us*/
+.mainpage-find-us{
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.mainpage-find-us-slogan h3{
+    text-indent: 2rem;
+
+
+}
+
+.mainpage-find-us-slogan-flex{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 2rem;
+}
+.mainpage-find-us-slogan h2{
+    color: #F6D042;
+    text-align: left;
+    line-height: 4rem;
+}
+
+.mainpage-find-us-picture{
+    display: flex;
+    padding: 10px 0;
+    height: 150px;
+}
+.mainpage-find-us-picture-img{
+    width: 97.392438%;
+}
+.mainpage-find-us-picture-img img{
+    object-fit: cover;
+}
+/* ******************** mainpage-line up*/
+
+.mainpage-lineup{
+    background-color: #F6D042;
+    padding: 0 0 50px;
+}
+
+.mainpage-lineup .greenbeer-lineup h2{
+    font-family: 'Acme', sans-serif;
+    font-size: 2rem;
+    line-height: 1rem;
+    text-align: center;
+    padding: 60px 0 0;
+}
+
+.greenbeer-lineup-view{
+    overflow :hidden;
+    max-width: 1200px;
+    margin: auto;
+}
+.lineup-content{
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: .5s;
+
+}
+.lineup-position{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lineup-backword{
+    font-family: 'Boogaloo', cursive;
+    font-size: 8.5rem;
+    color: #fff;
+    line-height: 500px;
+    text-align: center;
+}
+
+.lineup-card-img{
+    position: absolute;
+    height: 500px;
+    width: 100px;
+    transform: rotate(30deg);
+    transition: .5s;
+    cursor: pointer;
+    
+}
+
+.lineup-card-img img{
+    object-fit: contain;
+}
+
+.lineup-card{
+    width: 65.189048%;
+    text-align: center;
+}
+.lineup-card-title{
+    font-family: 'Acme', sans-serif;
+    font-size: 2rem;
+}
+
+.lineup-card-text{
+    font-size: 1em;
+    line-height: 1.2em;
+    text-align: center;
+}
+.tell-me-more{
+    text-align: center;
+}
+
+/* ******************** mainpage-event*/
+
+.mainpage-event{
+    padding: 50px 0 50px 0;
+}
+.mainpage-event-bg {
+    border: 1.25rem solid #F6D042;
+}
+
+.event-position {
+    position: relative;
+}
+
+.mainpage-event-slogan{
+    text-align: center;
+}
+.mainpage-event-slogan h3{
+    text-align: center;
+    position: absolute;
+    top: 5.625rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+section .mainpage-event-slogan h2{
+    color: #F6D042;
+    line-height: 6.25rem;
+}
+
+.event-list .event-card {
+    margin: 10px;
+    min-height: 200px;
+    padding: 20px;
+}
+.event-list .event-card{
+    background-size: 150%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: .3s;
+
+}
+
+
+.event-card-txt{
+    background-color: #006837ac;
+    margin: 20px;
+    padding: 10px;
+    width: 50%;
+    min-width: 200px;
+}
+.event-card-name{
+    color: white;
+    font-size: 1rem;
+    line-height: 28px;
+    font-family: 'Acme', sans-serif;
+}
+.event-card-description{
+    color: white;
+}
+.greenbeer-festival-more{
+    text-align: center;
+}
+/* ******************** mainpage-follow*/
+.mainpage-follow {
+    padding: 50px 0 50px;
+    background-color: black;
+}
+.mainpage-follow-tag{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+section .mainpage-follow-tag h2{
+    font-size: 4rem;
+    color: #fff;
+    letter-spacing:  -0.06rem;
+    text-align: center;
+    line-height: 3rem;
+}
+
+
+.mainpage-follow-tag h3{
+    line-height: 1.5rem;
+    color: #F6D042;
+    
+}
+
+.follow-img-box{
+    display: flex;
+    border: 1.25rem solid black;
+    gap: 10px;
+    margin: auto;
+}
+.follow-img-box .col{
+    width:98.044328%;
+}
+
+
+.follow-img {
+    width: 100%;
+    height: fit-content;
+    margin: 10px 0;
+}
+
+/* ******************** page-footer*/
+
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 50px 0 100px 0;
+}
+footer div{
+    color: #F6D042;
+    font-family: 'Acme', sans-serif;
+    font-size: 1.8em;
+    line-height: 2rem;
+    text-align: center;
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+}
+
+footer input {
+    width: 39.113428%;
+    max-width: 300px;
+    line-height: 1.8rem;
+    margin: .4rem;
+}
+
+.btn-submit {
+    width: fit-content;
+    height: 2rem;
+    font-family: 'Acme', sans-serif;
+    font-size: 1.5rem;
+    color: #000;
+    border-radius: 0.3rem;
+    background-color: #F6D042;
+    border: 1px solid #F6D042;
+
+}
+
+.icon-link p{
+    margin-top: .8rem;
+    text-align: center;
+}
+
+.icon-link a{
+    display: inline-block;
+    border-radius: 50% ;
+    padding: .375rem;
+    margin: .5rem;
+    background-color: #F6D042;
+    line-height: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* ******************** subpage*/
+
+.sub-page-top-cover{
+    padding-top: 70px;
+    position: relative;
+    background-color: #F6D042;
+}
+.sub-page-top-cover-img{
+    position: relative;
+    margin-bottom: 30px;
+}
+.sub-page-top-cover-img-top{
+    height: 300px;
+}
+.sub-page-top-cover-img-down{
+    position:absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+}
+div[class^="sub-page-top-cover-img-"]  img{
+    object-fit:cover; 
+    vertical-align: middle;
+}
+
+.sub-page-top-cover-title h1{
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right:0 ;
+    margin: auto;
+    font-family: 'Boogaloo', cursive;
+    font-size: 5rem;
+    color: #ebebeb;
+    -webkit-text-stroke: .2rem #006837;
+}
+
+.page-shopping-cart h2, .page-greenstore h2,
+.about-us h2, .product-slogan h2 , 
+.page-findus h2 ,.login h1, .product-introduction h1,
+.our-product-slogan h2{
+    font-family: 'Acme', sans-serif;
+    font-size: 2rem;
+    line-height: 3rem;
+    text-align: center;
+}
+.our-product-slogan p{
+    text-align: center;
+}
+.page-findus{
+    text-align: center;
+}
+
+.shopping-cart-check{
+    text-align: center;
+    padding: 10px 0;
+}
+
+.shopping-cart-flex{
+    box-sizing: border-box;
+    max-width: 1000px;
+    padding: 10px;
+    margin: 20px auto;
+    border: .8rem solid #F6D042;
+    border-radius: .3rem;
+
+}
+
+.shopping-cart-box-title{
+    border-bottom: 1px solid #888;
+    font-weight: 600;
+}
+.shopping-cart-box-title, .shopping-cart-box-purchase-item{
+    display: flex;
+    margin: 5px;
+    border: 1px solid rgb(38, 180, 142);
+}
+
+
+.cart-item, .purchase-cart-item {
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    display: flex;
+}
+.cart-price, .cart-quantity, .cart-total,.cart-icon-cancel,
+.purchase-cart-price, .purchase-cart-quantity,.purchase-cart-icon-cancel,
+.purchase-cart-total{
+    width: 10%;
+    text-align: center;
+    margin: auto;
+}
+.cart-quantity, .purchase-cart-quantity{
+    width: 20%;
+
+}
+
+
+.purchase-cart-icon-cancel{
+    margin: auto;
+    width: 10%;
+
+}
+
+.purchase-cart-quantity input{
+    width: 20px;
+    vertical-align: middle;
+}
+.purchase-cart-item-img {
+    width: 100px;
+    height: 100px;
+}
+.purchase-cart-item-img img{
+    object-fit: fill;
+}
+.purchase-cart-item-name {
+    margin: 5px;
+}
+.coupon-box-border{
+    max-width: 290px;
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 5px 10px auto;
+    border: .2rem solid #aaa;
+    border-radius: .3rem;
+}
+.coupon-box-border p {
+    font-size: 20px;
+}
+.coupon-box-border .total{
+    font-weight: 600;
+}
+#coupon {
+    height: 30px;
+
+}
+.coupon-box-border [class *= '-box'] {
+    margin: 10px 0;
+}
+.subtotal-box, .total-box, .discount-box{
+    display: flex;
+
+}
+.shopping-cart-box,.discount-box{
+    flex-grow: 1;
+}
+.shopping-cart-box, .coupon-code, .subtotal-box,.discount-box{
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.total-box{
+    font-size: 24px;
+    line-height: 30px;
+}
+.subtotal-price, .total-price ,.discount-price{
+    flex-grow: 1;
+    text-align: right;
+}
+#coupon{
+    width: calc(100% - 120px - .3rem);
+    box-sizing: border-box;
+}
+.btn-coupon-apply{
+    background-color: #F6D042;
+    font-size: 20px;
+    width: 100px;
+    vertical-align: middle;
+    color: #000;
+    border-radius: .3rem;
+}
+.btn-checkout{
+    width: 10rem;
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    font-size: 24px;
+    background-color: #F6D042;
+    color:#222;
+    border-radius: .3rem;
+    margin: auto;
+    display:block;
+}
+.btn-checkout:hover, .btn-coupon-apply:hover{
+    background-color: #fff;
+}
+
+/* ******************** greenstore*/
+
+.catalog p {
+    text-align: center;
+    margin: 20px 0;
+}
+.catalog-wine-box{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.catalog-wine-card{
+    width: 280px;
+    text-align: center;
+    margin: 10px;
+    outline: 1px solid red;
+}
+.catalog-wine-card-img{
+    width: 100%;
+    aspect-ratio: 1 / 1 ;
+    margin: auto;
+}
+
+.catalog-wine-card-img img{
+    object-fit:contain;
+}
+.catalog-wine-card-name{
+    font-size: 1rem;
+
+}
+.catalog-wine-card-price{
+    font-size: .8rem;
+    line-height: 1.2rem;
+    
+}
+.add-to-cart{
+    display: flex;
+    justify-content: center;
+}
+.add-to-cart input{
+    width: 30px;
+    line-height: .8rem;
+
+    border: 2px solid #F6D042;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold;
+    border-radius: .3rem 0 0 .3rem  ;
+}
+.add-to-cart button{
+    border-radius: 0 0.3rem 0.3rem 0 ;
+    color: #000;
+    width: fit-content;
+    font-size: .7rem;
+    line-height: .8rem;
+    text-align: center;
+    background-color: #F6D042;
+    border: 2px solid #F6D042;
+    border-left: 0px;
+    vertical-align: center;
+}
+.add-to-cart button:hover {
+background-color: #fff;
+
+}
+/* ******************** about-us*/
+
+.about-us h2, .product-slogan h2{
+    text-align: left;
+}
+
+.about-us span{
+    font-size: .8rem;
+    color: #666;
+}
+
+.taiwan-leader , .product-slogan {
+    padding: 20px 10px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+
+.our-history-img img,.brewing-beer-img img, .sustainability-img img{
+    object-fit: cover;
+}
+
+
+
+/* ******************** product*/
+
+.product-box {
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+}
+.product-card{
+    position: relative;
+    aspect-ratio: 1 / 1 ;
+    background: linear-gradient(to right, #f3f9a7 ,#cac531);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+.product-card:nth-child(4n+1){
+    background: linear-gradient(to right, #dce35b, #45b649); 
+}
+
+.product-card:nth-child(4n+2){
+    background: linear-gradient(to right, #a8ff78, #78ffd6);
+}
+
+
+.product-card-name{
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    font-size: .8rem;
+    text-align: center;
+    color: #222222;
+    height: 1rem;
+
+}
+
+
+.product-card-img {
+    width: 65%;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+    transition: .3s;
+    object-position: center center;
+}
+
+
+.product-card-img img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.map-box{
+    position: relative;
+    margin: 20px auto;
+    height: 400px;
+    overflow: hidden;
+}
+.map-box iframe{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    right: 0;
+    margin: auto;
+}
+.our-product{
+    max-width: 1200px;
+    margin: auto;
+
+    padding-bottom: 50px;
+    padding-top: 50px;
+    text-align: center;
+    
+}
+.our-product-word{
+    width: 300px;
+}
+.our-product-img {
+    width: 50%;
+    height: 50vh;
+    margin: auto;
+}
+.our-product-img img{
+    object-fit: contain;
+}
+
+/* ******************** login*/
+
+.login-box {
+    margin: 40px;
+    padding-top: 40px;
+    width: 350px;
+    margin:auto;
+}
+
+.login .container{
+    max-width: 500px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column ;
+}
+.login p {
+    font-size: 16px;
+}
+.login label {
+    width: 300px;
+    font-size: 18px;
+}
+.login .flex input {
+    width: 350px;
+    height: 30px;
+    margin: 5px 0;
+}
+.login-box input{
+    border: 1px solid block;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.submit {
+    padding: 5px;
+    text-align: center;
+}
+.submit button{
+    display: inline-block;
+    width: 100px;
+    height: 35px;
+    font-family: 'Acme', sans-serif;
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    background-color: #F6D042;
+}
+/* ******************** product-introduction*/
+.product-introduction span{
+    font-size: 14px;
+    line-height: 50px;
+}
+
+/* .sub-page-top-cover.product-introduction.sub-page-top-cover-img{
+    height: 200px;
+    border: 1px solid red;
+} */
+
+/* ******************** subpage-event*/
+section.event{
+    margin: 10px auto;
+}
+.event .event-card{
+    min-height: 300px;
+    padding: 10px;
+    background-size : cover;
+}
+.event-card:first-child {
+    background-image: url('pic/beer_20.jpg');
+}
+.event-card:nth-child(2){
+    background-image: url('pic/beer_23.jpg');
+}
+.event-card:nth-child(3){
+    background-image: url('pic/beer_22.jpg');
+}
+.event-card:nth-child(4){
+    background-image: url('pic/beer_23.jpg');
+}
+.event-card:nth-child(5){
+    background-image: url('pic/beer_22.jpg');
+}
+.event-card:nth-child(6){
+    background-image: url('pic/beer_22.jpg');
+
+}
+
+.disappear {
+    display: none;
+    margin-top: 0px;
+    transition: .4s;
+}
