@@ -4,12 +4,166 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SHOPPING CART | GREENBEER</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="rwd.css">
+    <link rel="stylesheet" href="rwd768.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+    <script src="js/jquery-3.6.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Acme&family=Boogaloo&family=Noto+Sans+TC:wght@300;400;500;700&family=Titan+One&display=swap');
+        body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
-        <script>
-            let verify = localStorage.getItem('greenbeer');
-            if( !verify ){window.location.href="verification.html";}
-        </script>
+    <div class="warning-sign">
+        <p class="warning-sign-slogan">
+            To secure your safety, do not drink and drive.<br>Please do not drink if you are a minor</p>
+    </div>
+    <div class="main-header-bg"></div>
+
+    <input type="checkbox" name="" id="menu-switch"> 
+    <header class="main-header">
+        <label class="menu-switch"for="menu-switch">
+            <i class="bi bi-list "></i><i class="bi bi-x-square"></i></label>
+
+            <div class="header_logo">
+                <a href="index.html" class="logo">
+                    <img src="pic/logo.png" alt="GREEN_BEER">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <a href="find-us.html">FIND US</a>
+                <a href="about.html">ABOUT US</a>
+                <a href="product.html">PRODUCT</a> 
+                <a href="event.html">EVENT</a>
+                <a href="greenstore.html">GREENSTORE</a>
+            </nav>
+            <div class="main-nav-member-shop">
+                <a href="login.html">
+                    <i class="bi bi-person"></i>
+                </a>
+                <a class="" href="shopping_cart.html">
+                    <i class="bi bi-cart block"></i>
+                </a>
+                <div class="shopping-cart-hover">
+                    <div class="shopping-cart-box">
+                        <div class="shopping-cart-box-title">
+                            <div class="cart-item">Item</div>
+                            <div class="cart-price">Price</div>
+                            <div class="cart-quantity">Quantity</div>
+                            <div class="cart-icon-cancel"></div>
+                        </div>
+                        <div class="empty-cart">
+                            it's Empty 
+                        </div>
+
+                    </div>
+                    <button class="btn-checkout"><a href="shopping_cart.html">CHECK OUT</a></button>
+                </div>
+            </div>
+
+    </header>
+
+
+    <section class="sub-page-top-cover">
+        <div class="sub-page-top-cover-img">
+            <div class="sub-page-top-cover-img-top">
+                <img src="pic/beer_12.jpg" alt="">
+            </div>
+            <div class="sub-page-top-cover-img-down">
+                <img src="pic/subpage_down_white.png" alt="">
+            </div>
+        </div>
+        <div class="sub-page-top-cover-title">
+            <h1 class="greenbeer">GREENStore</h1>
+        </div>
+    </section>
+
+
+
+
+    <section class="page-shopping-cart">
+        <h2>SHOPPING CART</h2>
+
+        <p class="shopping-cart-check">Please review the contents of your cart. When you have finished please proceed to the check out.</p>
+
+        <div class="shopping-cart-flex">
+
+            <div class="shopping-cart-box">
+                <div class="shopping-cart-box-title">
+                    <div class="cart-item">Item</div>
+                    <div class="cart-price">Price</div>
+                    <div class="cart-quantity">Quantity</div>
+                    <div class="cart-total">Total</div>
+                    <div class="cart-icon-cancel"></div>
+                </div>
+
+
+      
+                <div class="shopping-cart-box-purchase-item">
+                    <div class="purchase-cart-item">
+                        <div class="purchase-cart-item-img">
+                            <img src="pic/shop_02.png" alt="">
+                        </div>
+                        <div class="purchase-cart-item-name">BEER MUG</div>
+                    </div>
+                    <div class="purchase-cart-price">$999</div>
+                    <div class="purchase-cart-quantity">
+                        <input type="text" placeholder="1">
+                    </div>
+                    <div class="purchase-cart-total">$999</div>
+                    <div class="purchase-cart-icon-cancel"><i class="bi bi-x-lg"></i></div>
+                </div>
+            </div>
+
+            <div class="coupon-box-border">
+                <p class="coupon-code">Coupon Code</p>
+                <div class="coupon-input">
+                    <label for="coupon">
+                        <input type="text" id="coupon" placeholder="Enter coupon code">
+                    <button class="btn-coupon-apply" >APPLY</button></label>
+                </div>
+
+                <div class="discount-box">
+                    <p class="discount">Discount</p>
+                    <p class="discount-price">-$999</p>
+                </div>
+
+                <div class="subtotal-box">
+                    <p class="subtotal">Subtotal</p>
+                    <p class="subtotal-price">$999</p>
+                </div>
+    
+                <div class="total-box">
+                    <p class="total">Total</p>
+                    <p class="total-price">$999</p>
+                </div>
+                <button class="btn-pay">CHECK OUT</button>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>STAY IN THE KNOW</div>
+        <p>Monthly servings of GREENBEER news, events, offers and chances to win!</p>
+        <label for=""><input type="text" placeholder="email"></label>
+        <div><button class="btn-submit">SUBMIT</button></div>
+        <div class="icon-link">
+            <p>
+            <a href=""><i class="bi bi-facebook"></i>
+            </a>
+            <a href=""><i class="bi bi-instagram"></i>
+            </a>
+            <a href=""><i class="bi bi-youtube"></i>
+            </a>
+            </p>
+        </div>
+    </footer> 
 </body>
 </html>
