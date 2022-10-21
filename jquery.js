@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-
-
     var catalogWineCard = [{
         cartImg :'pic/shop_01.png',
         cardName : 'green glass cup',
@@ -15,7 +13,6 @@ $(document).ready(function(){
         cardName : 'green T-shirt',
         price : 800 
     }]
-    console.log(cartData)
 
     if(!localStorage.getItem('cart')){
         console.log('沒有資料')
@@ -31,6 +28,7 @@ $(document).ready(function(){
 
         cartData = JSON.parse(`[${data}]`)
     }
+    
     cartData = JSON.parse(localStorage.getItem('cart'))
 
     console.log(cartData)
@@ -55,11 +53,11 @@ $(document).ready(function(){
         cartCard+= `<div class="shopping-cart-box-purchase-item">
                     <div class="purchase-cart-item">
                             <div class="purchase-cart-item-img">
-                                <img src="${cartData[i].cartImg}" alt="">
+                                <img src="`+cartData[i].cartImg+`" alt="">
                             </div>
                         </div>
-                        <div class="purchase-cart-price">${cartData[i].price}</div>
-                        <div class="purchase-cart-quantity">${cartData[i].cartNum}</div>
+                        <div class="purchase-cart-price">`+ cartData[i].price+ `</div>
+                        <div class="purchase-cart-quantity">`+cartData[i].cartNum+`</div>
                         <div class="purchase-cart-icon-cancel"><i class="bi bi-x-lg"></i></div>
                     </div>`;
 

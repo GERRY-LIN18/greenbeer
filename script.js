@@ -22,9 +22,11 @@ window.addEventListener("load", function(){
     let lineup_width=document.querySelectorAll('.lineup-backword');
     let w=window.innerWidth;
     let lineup_height=document.querySelector(`.greenbeer-lineup-view`);
-    let h = document.querySelector('.lineup-position').style.height;
+    let h = document.querySelector('.lineup-position').offsetHeight;
 
+  
     function set_w (){
+        console.log(h)
         w=window.innerWidth;
         for(let i = 0 ; i< lineup_width.length;i++){
             if( w <= 1200) { 
