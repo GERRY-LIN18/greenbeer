@@ -1,3 +1,6 @@
+let verify = localStorage.getItem('greenbeer');
+if( !verify ){document.location.assign("verification.html");}
+
 $(document).ready(function(){
 
     var catalog = [{
@@ -19,13 +22,11 @@ $(document).ready(function(){
     }]
 
     if(! localStorage.getItem('cart')){
-        console.log('沒有資料')
         localStorage.setItem('cart', JSON.stringify(catalog))
     }else{
         catalog = JSON.parse(localStorage.getItem('cart'))
-        console.log('有資料')
     }
-    console.log(catalog)
+
     
 
 
@@ -65,7 +66,6 @@ $(document).ready(function(){
 
     let empty =true;
     for(let i=0 ; i<catalog.length ; i++){
-        console.log('判斷是否零')
         if (catalog[i].num == 0) {
             console.log('零')
             $('.shopping-cart-box-purchase-item').eq(i).hide()
@@ -76,7 +76,6 @@ $(document).ready(function(){
     }
 
     if(!empty){
-        console.log('購物車有東西')
         $('.btn-checkout').show()
         $('.empty-cart').hide()
     }else{
@@ -87,9 +86,7 @@ $(document).ready(function(){
     let addtocartFadeout;
     for(let i=0 ; i< catalog.length ; i++){
         $('.add-to-cart button').eq(i).on('click',function(){
-                console.log('加入購物車' + i)
             if($(window).width()>=768){
-                console.log('yes')
                 $(`.shopping-cart-hover`).show()
                 addtocartFadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'1500')
             }
@@ -100,11 +97,8 @@ $(document).ready(function(){
             $('.btn-checkout').show();
 
 
-            console.log($('.add-to-cart input').eq(i).val());
             catalog[i].num += parseInt($('.add-to-cart input').eq(i).val());
-            console.log( catalog[i].num )
             $('.purchase-cart-quantity').eq(i).text(catalog[i].num)
-            console.log( catalog )
             localStorage.setItem('cart', JSON.stringify(catalog))
             
         })
@@ -118,14 +112,12 @@ $(document).ready(function(){
             empty = true
             console.log(localStorage.getItem('cart'))
             for(let j=0 ; j< catalog.length ; j++){
-                console.log('判斷車車')
                 if( catalog[j].num != 0){
                     empty = false;
                     break
                 }
             }
             if(empty) {
-                console.log('購物車沒東西')
                 $('.btn-checkout').hide()
                 $('.empty-cart').show()
             }   
