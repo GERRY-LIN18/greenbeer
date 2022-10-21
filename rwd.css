@@ -48,6 +48,10 @@ table {
 }
 
 /* ******************** */
+.hiddenarr {
+    -moz-appearance: textfield;
+
+  }
 
 .container{
     max-width: 1200px;
@@ -181,7 +185,19 @@ section h2{
     margin: .2rem;
     transition: .3s;
 }
+.main-nav-member-shop .bi-cart:hover + .shopping-cart-hover{
+    display: block;
+}
 
+.shopping-cart-hover{
+    display: none;
+}
+.empty-cart{
+    text-align: center;
+}
+.shopping-cart-hover .btn-checkout{
+    display: none;
+}
 
 /* ******************** mainpage-top-cover*/
 .mainpage-top-cover{
@@ -565,6 +581,7 @@ div[class^="sub-page-top-cover-img-"]  img{
     padding: 10px 0;
 }
 
+
 .shopping-cart-flex{
     box-sizing: border-box;
     max-width: 1000px;
@@ -613,8 +630,11 @@ div[class^="sub-page-top-cover-img-"]  img{
 }
 
 .purchase-cart-quantity input{
-    width: 20px;
+    width: 30px;
     vertical-align: middle;
+    text-align: center;
+    -moz-appearance: textfield;
+
 }
 .purchase-cart-item-img {
     width: 100px;
@@ -625,6 +645,8 @@ div[class^="sub-page-top-cover-img-"]  img{
 }
 .purchase-cart-item-name {
     margin: 5px;
+    width: 60%;
+    text-align: center;
 }
 .coupon-box-border{
     max-width: 290px;
@@ -707,14 +729,19 @@ div[class^="sub-page-top-cover-img-"]  img{
 }
 .catalog-wine-card{
     width: 280px;
+    border-radius: .3rem;
     text-align: center;
-    margin: 10px;
-    outline: 1px solid red;
+    vertical-align: center;
+    padding: 10px 0; 
+    margin: 15px;
+    box-shadow: 6px 6px 10px rgba(0,0,0,0.3);
 }
 .catalog-wine-card-img{
-    width: 100%;
+    width: 80%;
     aspect-ratio: 1 / 1 ;
     margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .catalog-wine-card-img img{
@@ -754,6 +781,7 @@ div[class^="sub-page-top-cover-img-"]  img{
     border: 2px solid #F6D042;
     border-left: 0px;
     vertical-align: center;
+    cursor: pointer;
 }
 .add-to-cart button:hover {
 background-color: #fff;
@@ -863,7 +891,8 @@ background-color: #fff;
     
 }
 .our-product-word{
-    width: 300px;
+    width: calc(100% - 20px);
+    margin: 10px auto;
 }
 .our-product-img {
     width: 50%;
@@ -924,15 +953,41 @@ background-color: #fff;
     background-color: #F6D042;
 }
 /* ******************** product-introduction*/
+.product-introduction{
+    margin-top: 70px;
+}
 .product-introduction span{
     font-size: 14px;
     line-height: 50px;
 }
-
-/* .sub-page-top-cover.product-introduction.sub-page-top-cover-img{
-    height: 200px;
+.values h2 {
+    font-family: 'Acme', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    text-align: center;
+}
+.values h2 span{
+    font-family: 'Acme', sans-serif;
+    font-size: .9rem;
+    line-height: 1rem;
+    text-align: center;
+}
+.values table{
+    width: calc(80% - 20px);
+    margin: 5px auto;
+    font-size: .8rem;
     border: 1px solid red;
-} */
+}
+.values table tr{
+    border-bottom: 1px solid #888;
+}
+.values table td{
+    width:  50%;
+    line-height: 1.8rem;
+}
+.values table tr>td:nth-child(2){
+    text-align: right;
+}
 
 /* ******************** subpage-event*/
 section.event{
@@ -1002,4 +1057,18 @@ h1{
     margin: 10px;
     border-radius: .3rem;
 
+}
+.cartTips{
+    background-color: #aaaca3;
+    border-radius: .3rem;
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 300px;
+    height: 1.8rem;
+    text-align: center;
+    display: none;
 }
