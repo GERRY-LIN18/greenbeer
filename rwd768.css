@@ -106,7 +106,8 @@
     .catalog-wine-card{
         width: calc(50% - 30px);
     }
-    .cart-item, .purchase-cart-item {
+    .cart-item, .purchase-cart-item,
+    .check_item, .purchaseCheck_Item {
         flex-direction: column;
     }
 

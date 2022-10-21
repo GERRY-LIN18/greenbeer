@@ -79,11 +79,12 @@ $(document).ready(function(){
         cardName : 'green T-shirt',
         price : 800 
     }]
-    var cartData ;
+    console.log(cartData)
 
-    if(localStorage.getItem('cart')){
-        cartData = JSON.parse(localStorage.getItem('cart'))
-    }else{
+    if(!localStorage.getItem('cart')){
+        console.log('沒有資料')
+        var cartData ;
+        
         let data=''
         var q;
         for( q=0 ; q<catalogWineCard.length-1 ; q++){
@@ -94,6 +95,9 @@ $(document).ready(function(){
 
         cartData = JSON.parse(`[${data}]`)
     }
+    cartData = JSON.parse(localStorage.getItem('cart'))
+
+    console.log(cartData)
 
     var wineCard = '';
     var cartCard = '';
@@ -127,20 +131,16 @@ $(document).ready(function(){
 
     $(`.catalog-wine-box`).html(wineCard);
 
-
-
-
-
-
     if (catalogWineCard.length % 2 != 0){
         $(`.catalog-wine-box`).append('<div class="catalog-wine-card">coming soon...</div>')
     }
     $('.shopping-cart-hover>.shopping-cart-box').append(cartCard);
 
 
-
+    $('.shopping-cart-box-purchase-item').show()
 
     for(let m=0 ; m<cartData.length ; m++){
+        console.log('判斷是否零')
         if (cartData[m].cartNum != 0) {
             $(`.btn-checkout`).show()
             $(`.empty-cart`).hide()
@@ -150,7 +150,6 @@ $(document).ready(function(){
 
                     if(cartData[n].cartNum != 0){
                         console.log('非飛0')
-                        console.log(cartData[n].cartNum)
 
                         $(`.shopping-cart-box-purchase-item`).eq(n).show()
                         
@@ -162,7 +161,6 @@ $(document).ready(function(){
             $(`.shopping-cart-box-purchase-item`).hide()
             $(`.btn-checkout`).hide()
             $(`.empty-cart`).show()
-                console.log('是0')
 
         }
 
@@ -185,9 +183,10 @@ $(document).ready(function(){
             $(`.purchase-cart-item-img img`).eq(n).attr('src',$('.catalog-wine-card-img img').eq(n).attr("src"))
             $(`.purchase-cart-price`).eq(n).text($('.catalog-wine-card-price').eq(n).text())
             $(`.purchase-cart-quantity`).eq(n).text(parseInt(quantity) + parseInt($('.add-to-cart input').eq(n).val()))
-
+            console.log($(`.purchase-cart-quantity`).eq(n).text())
             cartData[n].cartNum = parseInt($(`.purchase-cart-quantity`).eq(n).text())
-            console.log(cartData[n])
+            console.log(cartData)
+            localStorage.setItem('cart',JSON.stringify(cartData))
             addtocartFadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'1500')
         })
 
@@ -195,9 +194,7 @@ $(document).ready(function(){
             $('.shopping-cart-box-purchase-item').eq(n).hide()
             $('.purchase-cart-quantity').eq(n).text(0)
             cartData[n].cartNum = 0
-
-            console.log(cartData[n])
-
+            localStorage.setItem('cart',JSON.stringify(cartData))
             for(let m = 0; m< catalogWineCard.length ;  m++) {
                 if($('.purchase-cart-quantity').eq(m).text() != 0 ){
                     break;
@@ -242,52 +239,76 @@ $(document).ready(function(){
     })
     
 
+    // $(window).bind('beforeunload', function(){
 
-    $(window).bind('beforeunload', function(){
-        localStorage.setItem('cart', JSON.stringify(cartData))
-    });
+    //     localStorage.setItem('cart', JSON.stringify(cartData))
+    // });
 
 
 
     // shopping_cart.html
-    var purchase_item = '';
-    for(let i=0 ;i<cartData.length ; i++){
-    purchase_item +=
-        `<div class="shopping-cart-box-purchase-item">
-        <div class="purchase-cart-item">
-            <div class="purchase-cart-item-img">
-                <img src="${cartData[i].cartImg}" alt="">
-            </div>
-            <div class="purchase-cart-item-name">${cartData[i].cardName}</div>
-        </div>
-        <div class="purchase-cart-price">${cartData[i].price}</div>
-        <div class="purchase-cart-quantity">
-            <input type="number" placeholder="1" value="${cartData[i].cartNum}" class='.hiddenarr'>
-        </div>
-        <div class="purchase-cart-total"> `+ cartData[i].price * cartData[i].cartNum +`</div>
-        <div class="purchase-cart-icon-cancel"><i class="bi bi-x-lg"></i></div>
-    </div>`
-    }
-    $('.shopping-cart-flex > .shopping-cart-box').append(purchase_item)
+
+    
+    // var purchase_item = '';
+    // for(let i=0 ;i<cartData.length ; i++){
+    // purchase_item +=
+    //     `<div class="shopping-cart-box-purchase-item">
+    //     <div class="purchase-cart-item">
+    //         <div class="purchase-cart-item-img">
+    //             <img src="${cartData[i].cartImg}" alt="">
+    //         </div>
+    //         <div class="purchase-cart-item-name">${cartData[i].cardName}</div>
+    //     </div>
+    //     <div class="purchase-cart-price">${cartData[i].price}</div>
+    //     <div class="purchase-cart-quantity">
+    //         <input type="number" placeholder="1" value="${cartData[i].cartNum}" class='.hiddenarr'>
+    //     </div>
+    //     <div class="purchase-cart-total"> `+ cartData[i].price * cartData[i].cartNum +`</div>
+    //     <div class="purchase-cart-icon-cancel"><i class="bi bi-x-lg"></i></div>
+    // </div>`
+    // }
+    // $('.shopping-cart-flex > .shopping-cart-box').append(purchase_item)
 
 
-    for(let i=0 ;i<cartData.length ; i++){
-        console.log('xxx')
-// 消失八拜託
-        if( $('.purchase-cart-total').eq(i).text() == 0 ){
-            $(`.shopping-cart-flex .shopping-cart-box-purchase-item`).eq(i).hide()
-            console.log(i)
-            }
-    }            
+    // for(let i=0 ;i<cartData.length ; i++){
+    //     if( $('.purchase-cart-total').eq(i).text() == 0 ){
+    //         $(`.shopping-cart-flex .shopping-cart-box-purchase-item`).eq(i).hide()
+    //         }
+    // }            
 
-    let subPrice = 0;
-    for(let i=0 ;i<cartData.length ; i++){
-        subPrice += parseInt($('.purchase-cart-total').eq(i).text())
-    }
+    // $('.discount-price').html(`-$0`)
+    // let subPrice = 0;
+    // for(let i=0 ;i<cartData.length ; i++){
+    //     subPrice += parseInt($('.purchase-cart-total').eq(i).text())
+    // }
 
-    $('.subtotal-price').html(subPrice)
+    // $('.subtotal-price').html(`$` + subPrice)
 
-    let totalPrice = 0;
-    $('.total-price').html(subPrice)
+    // let totalPrice = 0;
+    // // $('.total-price').html( subPrice- )
+
+    // var discount = [{'AAA111': 111} ,{'BBB111': 87}]
+    // localStorage.setItem('discount', JSON.stringify(discount));
+
+
+    // for(let i=0 ;i<cartData.length ; i++){
+    //     $('.purchase-cart-quantity input').eq(i).blur()
+    //     $('.shopping-cart-box .bi').click()
+    // }
+
+    // $('#coupon').blur()
+
+    // $('.purchase-cart-quantity input').blur(function(){
+    //     console.log('s')
+    //     for(let i=0 ;i<cartData.length ; i++){
+    //     console.log('sS')
+
+    //         if( $('.purchase-cart-total').eq(i).text() == 0 ){
+    //         console.log('等於0')
+
+    //             $(`.shopping-cart-flex .shopping-cart-box-purchase-item`).eq(i).hide()
+    //             }
+    //     } 
+    // })
 })  
 
