@@ -34,7 +34,7 @@ window.addEventListener("load", function(){
             else
             lineup_width[i].style.width = '1200px';
         }
-        lineup_height.style.height = h + 'px';
+        $('.greenbeer-lineup-view').height( h );
     }
     set_w ();
     window.addEventListener('resize',set_w);
