@@ -1,50 +1,47 @@
 $(document).ready(function(){
 
-    var catalogWineCard = [{
-        cartImg :'pic/shop_01.png',
+    var catalog = [{
+        src :'pic/shop_01.png',
         cardName : 'green glass cup',
-        price : 500
+        price : 500,
+        num : 0
+        
     },{
-        cartImg :'pic/shop_02.png',
+        src :'pic/shop_02.png',
         cardName : 'green steel cup',
-        price : 400
+        price : 400,
+        num : 0
     },{
-        cartImg :'pic/shop_03.png',
+        src :'pic/shop_03.png',
         cardName : 'green T-shirt',
-        price : 800 
+        price : 800 ,
+        num : 0
     }]
 
-    if(!localStorage.getItem('cart')){
+    if(! localStorage.getItem('cart')){
         console.log('沒有資料')
-        var cartData ;
-        
-        let data=''
-        var q;
-        for( q=0 ; q<catalogWineCard.length-1 ; q++){
-            data+= `{"cartImg":${JSON.stringify(catalogWineCard[q].cartImg)},"cardName":${JSON.stringify(catalogWineCard[q].cardName)},"price":${JSON.stringify(catalogWineCard[q].price)}, "cartNum":0},`
-        }
-        q = catalogWineCard.length-1;
-        data+= `{"cartImg":${JSON.stringify(catalogWineCard[q].cartImg)},"cardName":${JSON.stringify(catalogWineCard[q].cardName)},"price":${JSON.stringify(catalogWineCard[q].price)}, "cartNum":0}`
-
-        cartData = JSON.parse(`[${data}]`)
+        localStorage.setItem('cart', JSON.stringify(catalog))
+    }else{
+        catalog = JSON.parse(localStorage.getItem('cart'))
+        console.log('有資料')
     }
+    console.log(catalog)
     
-    cartData = JSON.parse(localStorage.getItem('cart'))
 
-    console.log(cartData)
+
 
     var wineCard = '';
     var cartCard = '';
-    for (let i = 0; i < catalogWineCard.length; i++) {
+    for (let i = 0; i < catalog.length; i++) {
         wineCard +=
             `<div class="catalog-wine-card">
                 <div class="catalog-wine-card-img">
-                    <img src="`+ catalogWineCard[i].cartImg+`" alt="">
+                    <img src="`+ catalog[i].src+`" alt="">
                     </div>
                 <div class="catalog-wine-card-name">`
-                    + catalogWineCard[i].cardName +`</div>
+                    + catalog[i].cardName +`</div>
             <div class="catalog-wine-card-price">$`
-                + catalogWineCard[i].price+ `</div>
+                + catalog[i].price+ `</div>
             <div class="add-to-cart">
                 <input type="number" id="" placeholder="1" value="1" min="1">
                 <button>ADD TO CART</button></div>
@@ -53,106 +50,93 @@ $(document).ready(function(){
         cartCard+= `<div class="shopping-cart-box-purchase-item">
                     <div class="purchase-cart-item">
                             <div class="purchase-cart-item-img">
-                                <img src="`+cartData[i].cartImg+`" alt="">
+                                <img src="`+catalog[i].src+`" alt="">
                             </div>
                         </div>
-                        <div class="purchase-cart-price">`+ cartData[i].price+ `</div>
-                        <div class="purchase-cart-quantity">`+cartData[i].cartNum+`</div>
+                        <div class="purchase-cart-price">`+ catalog[i].price+ `</div>
+                        <div class="purchase-cart-quantity">`+catalog[i].num+`</div>
                         <div class="purchase-cart-icon-cancel"><i class="bi bi-x-lg"></i></div>
                     </div>`;
-
     }
+
 
     $(`.catalog-wine-box`).html(wineCard);
+    $('.shopping-cart-hover .shopping-cart-box').append(cartCard);
 
-    if (catalogWineCard.length % 2 != 0){
-        $(`.catalog-wine-box`).append('<div class="catalog-wine-card">coming soon...</div>')
-    }
-    $('.shopping-cart-hover>.shopping-cart-box').append(cartCard);
-
-
-    $('.shopping-cart-box-purchase-item').show()
-
-    for(let m=0 ; m<cartData.length ; m++){
+    let empty =true;
+    for(let i=0 ; i<catalog.length ; i++){
         console.log('判斷是否零')
-        if (cartData[m].cartNum != 0) {
-            $(`.btn-checkout`).show()
-            $(`.empty-cart`).hide()
-            
-                console.log('非0');
-                for(let n=0 ; n<cartData.length ; n++){
-
-                    if(cartData[n].cartNum != 0){
-                        console.log('非飛0')
-
-                        $(`.shopping-cart-box-purchase-item`).eq(n).show()
-                        
-                    }else{
-                         $(`.shopping-cart-box-purchase-item`).eq(n).hide()
-                    }}
-                break                        
-        }else {
-            $(`.shopping-cart-box-purchase-item`).hide()
-            $(`.btn-checkout`).hide()
-            $(`.empty-cart`).show()
-
+        if (catalog[i].num == 0) {
+            console.log('零')
+            $('.shopping-cart-box-purchase-item').eq(i).hide()
+        }else{
+            $('.shopping-cart-box-purchase-item').eq(i).show()
+            empty = false;
         }
-
     }
 
+    if(!empty){
+        console.log('購物車有東西')
+        $('.btn-checkout').show()
+        $('.empty-cart').hide()
+    }else{
+
+    }
+    
 
     let addtocartFadeout;
-    for(let n=0 ; n< catalogWineCard.length ; n++){
-        $('.add-to-cart button').eq(n).on('click',function(){
+    for(let i=0 ; i< catalog.length ; i++){
+        $('.add-to-cart button').eq(i).on('click',function(){
+                console.log('加入購物車' + i)
             if($(window).width()>=768){
+                console.log('yes')
                 $(`.shopping-cart-hover`).show()
+                addtocartFadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'1500')
             }
-            else {$(`.cartTips`).fadeIn().fadeOut('800')}
+            else { $(`.cartTips`).fadeIn().fadeOut('1500') }
 
             $(`.empty-cart`).hide()
-            $('.shopping-cart-box-purchase-item').eq(n).show();
+            $('.shopping-cart-box-purchase-item').eq(i).show();
             $('.btn-checkout').show();
 
-            let quantity = $('.purchase-cart-quantity').eq(n).text();
-            $(`.purchase-cart-item-img img`).eq(n).attr('src',$('.catalog-wine-card-img img').eq(n).attr("src"))
-            $(`.purchase-cart-price`).eq(n).text($('.catalog-wine-card-price').eq(n).text())
-            $(`.purchase-cart-quantity`).eq(n).text(parseInt(quantity) + parseInt($('.add-to-cart input').eq(n).val()))
-            console.log($(`.purchase-cart-quantity`).eq(n).text())
-            cartData[n].cartNum = parseInt($(`.purchase-cart-quantity`).eq(n).text())
-            console.log(cartData)
-            localStorage.setItem('cart',JSON.stringify(cartData))
-            addtocartFadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'1500')
+
+            console.log($('.add-to-cart input').eq(i).val());
+            catalog[i].num += parseInt($('.add-to-cart input').eq(i).val());
+            console.log( catalog[i].num )
+            $('.purchase-cart-quantity').eq(i).text(catalog[i].num)
+            console.log( catalog )
+            localStorage.setItem('cart', JSON.stringify(catalog))
+            
         })
+    
+        $('.purchase-cart-icon-cancel').eq(i).click(function(){
+            $('.shopping-cart-box-purchase-item').eq(i).hide()
+            $('.purchase-cart-quantity').eq(i).text(0)
+            catalog[i].num = 0
+            localStorage.setItem('cart', JSON.stringify(catalog))
 
-        $('.purchase-cart-icon-cancel').eq(n).click(function(){
-            $('.shopping-cart-box-purchase-item').eq(n).hide()
-            $('.purchase-cart-quantity').eq(n).text(0)
-            cartData[n].cartNum = 0
-            localStorage.setItem('cart',JSON.stringify(cartData))
-            for(let m = 0; m< catalogWineCard.length ;  m++) {
-                if($('.purchase-cart-quantity').eq(m).text() != 0 ){
-                    break;
-                }else{
-                    for(let p = m+1; p<catalogWineCard.length ;  p++) {
-                        if($('.purchase-cart-quantity').eq(p).text() != 0 ){
-                            break
-                        }else{
-                            $(`.empty-cart`).show();
-                            $('.btn-checkout').hide();
-                        }
-
-                    }
-                } 
-                
+            empty = true
+            console.log(localStorage.getItem('cart'))
+            for(let j=0 ; j< catalog.length ; j++){
+                console.log('判斷車車')
+                if( catalog[j].num != 0){
+                    empty = false;
+                    break
+                }
             }
+            if(empty) {
+                console.log('購物車沒東西')
+                $('.btn-checkout').hide()
+                $('.empty-cart').show()
+            }   
         })
     }
     
 
-    let bi_cartfadeout ;
+    // let bi_cartfadeout ;
     
     $('.bi-cart').mouseenter(function(){
-        if($(window).width()>767){
+        if($(window).width()>=768){
         $('.shopping-cart-hover').fadeIn()
     }}).mouseleave(function(){
         
@@ -164,19 +148,15 @@ $(document).ready(function(){
     $('.shopping-cart-hover').mouseenter(function(){
         clearTimeout(bi_cartfadeout);
         clearTimeout(addtocartFadeout);
-
-        $(this).stop(true).show()
+        $(this).show()
     }).mouseleave(function(){
         setTimeout(function(){
             $('.shopping-cart-hover').fadeOut()
-        },'1000');
+        },'1500');
     })
     
 
-    // $(window).bind('beforeunload', function(){
 
-    //     localStorage.setItem('cart', JSON.stringify(cartData))
-    // });
 
 
 
