@@ -1117,3 +1117,43 @@ h1{
     text-align: center;
     display: none;
 }
+.confirm_deletion{
+    max-width: 300px;
+    width: 50%;
+    height: fit-content;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color:  #f6d042;
+    color: #222;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px rgba(0,0,0,0.5);
+    padding: 10px;
+    display: none;
+}
+.confirm_deletion p{
+    font-size: 1.2rem;
+}
+.confirm_deletion button{
+    background-color: #fff;
+    font-size: 1rem;
+    width:80px;
+    padding: ;
+    vertical-align: middle;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.confirm_deletion button:hover{
+    box-shadow: inset 2px 2px 2px #aaaca3;
+}
+.confirm_deletion img{
+    width: 30%;
+    margin: auto;
+    padding: 5px;
+}

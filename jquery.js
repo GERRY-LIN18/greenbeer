@@ -27,10 +27,6 @@ $(document).ready(function(){
         catalog = JSON.parse(localStorage.getItem('cart'))
     }
 
-    
-
-
-
     var wineCard = '';
     var cartCard = '';
     for (let i = 0; i < catalog.length; i++) {
@@ -60,14 +56,12 @@ $(document).ready(function(){
                     </div>`;
     }
 
-
     $(`.catalog-wine-box`).html(wineCard);
     $('.shopping-cart-hover .shopping-cart-box').append(cartCard);
 
     let empty =true;
     for(let i=0 ; i<catalog.length ; i++){
         if (catalog[i].num == 0) {
-            console.log('零')
             $('.shopping-cart-box-purchase-item').eq(i).hide()
         }else{
             $('.shopping-cart-box-purchase-item').eq(i).show()
@@ -81,7 +75,6 @@ $(document).ready(function(){
     }else{
 
     }
-    
 
     let addtocartFadeout;
     for(let i=0 ; i< catalog.length ; i++){
@@ -124,8 +117,7 @@ $(document).ready(function(){
         })
     }
     
-
-    // let bi_cartfadeout ;
+    let bi_cartfadeout ;
     
     $('.bi-cart').mouseenter(function(){
         if($(window).width()>=768){
@@ -147,40 +139,66 @@ $(document).ready(function(){
         },'1500');
     })
     
-
-
-
-
-
     // shopping_cart.html
+    if(empty) {
+        $('.checkoutPage-title').after(`<div class="empty-cart">it's Empty</div>`)
+    }
+    let subtotal=0
+    for(let i=0 ; i< catalog.length ; i++){
+        subtotal += catalog[i].price * catalog[i].num
+        $('.coupon-box-border').before(`
+            <div class="checkoutPage_boxPurchaseItem">
+                <div class="purchaseCheck_Item">
+                    <div class="purchaseCheck_Item_img">
+                        <img src="`+catalog[i].src +`" alt="">
+                    </div>
+                    <div class="purchaseCheck_Item_name">`+catalog[i].cardName +`</div>
+                </div>
+                <div class="purchaseCheck_price">$`+catalog[i].price +`</div>
+                <div class="purchaseCheck_quantity">
+                    <input type="number" placeholder="1" min="1" value="`+catalog[i].num +`">
+                </div>
+                <div class="purchaseCheck_total">$`+ catalog[i].price * catalog[i].num +`</div>
+                <div class="purchaseCheck_cancel"><i class="bi bi-x-lg"></i></div>
+            </div>
+        `)
+    }
+    $('.subtotal-price').text(`$` + subtotal)
+    $('.total-price').text(`$` + (subtotal - $('.discount-price').text().slice(2)))
 
-    
-    // var purchase_item = '';
-    // for(let i=0 ;i<cartData.length ; i++){
-    // purchase_item +=
-    //     `<div class="shopping-cart-box-purchase-item">
-    //     <div class="purchase-cart-item">
-    //         <div class="purchase-cart-item-img">
-    //             <img src="${cartData[i].cartImg}" alt="">
-    //         </div>
-    //         <div class="purchase-cart-item-name">${cartData[i].cardName}</div>
-    //     </div>
-    //     <div class="purchase-cart-price">${cartData[i].price}</div>
-    //     <div class="purchase-cart-quantity">
-    //         <input type="number" placeholder="1" value="${cartData[i].cartNum}" class='.hiddenarr'>
-    //     </div>
-    //     <div class="purchase-cart-total"> `+ cartData[i].price * cartData[i].cartNum +`</div>
-    //     <div class="purchase-cart-icon-cancel"><i class="bi bi-x-lg"></i></div>
-    // </div>`
-    // }
-    // $('.shopping-cart-flex > .shopping-cart-box').append(purchase_item)
+    console.log($('.discount-price').text().slice(2))
+    for(let i=0 ; i< catalog.length ; i++){
+        if(catalog[i].num== 0 ){
+            $('.checkoutPage_boxPurchaseItem').eq(i).hide()
+        }
+        $('.purchaseCheck_quantity input').eq(i).blur(function(){
+            let quantity = $(this).val()
+            catalog[i].num = parseInt(quantity) ;
+            console.log(catalog)
+            console.log(quantity)
+            $('.purchaseCheck_total').eq(i).text( catalog[i].price * catalog[i].num )
+        })
 
+        $('.purchaseCheck_cancel i').eq(i).click(function(){
+            $('.confirm_deletion').show()
+            $('.confirm_deletion img').attr('src', catalog[i].src)
+            console.log(i)
 
-    // for(let i=0 ;i<cartData.length ; i++){
-    //     if( $('.purchase-cart-total').eq(i).text() == 0 ){
-    //         $(`.shopping-cart-flex .shopping-cart-box-purchase-item`).eq(i).hide()
-    //         }
-    // }            
+            $('#cancel').click(function(){
+            $('.confirm_deletion').hide()
+            })
+            $('#delete').click(function(){
+                $('.confirm_deletion').hide()
+                $('.checkoutPage_boxPurchaseItem').eq(i).hide()
+                catalog[i].num = 0
+                localStorage.setItem('cart', JSON.stringify(catalog))
+                console.log(catalog)
+
+            })
+        })
+    }
+
+          
 
     // $('.discount-price').html(`-$0`)
     // let subPrice = 0;
