@@ -1,5 +1,5 @@
-let verify = localStorage.getItem('greenbeer');
-if( !verify ){document.location.assign("verification.html");}
+
+if( !localStorage.getItem('greenbeer')){document.location.assign("verification.html");}
 
 
 window.addEventListener("load", function(){
