@@ -1093,14 +1093,20 @@ h1{
     width: 30%;
 }
 
-.verification button{
+.verify{
     width: 100%;
     max-width: 300px;
     height: 2rem;
     font-size: 1.3rem;
     margin: 10px;
     border-radius: .3rem;
-
+    background-color: #ddd;
+    color: #000;
+}
+.verifyPass{
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow:  2px 2px 2px #aaaca3;
 }
 
 .cartTips{
@@ -1143,7 +1149,6 @@ h1{
     background-color: #fff;
     font-size: 1rem;
     width:80px;
-    padding: ;
     vertical-align: middle;
     color: #000;
     border-radius: 5px;

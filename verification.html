@@ -32,7 +32,7 @@
     <input type="text" id="day" max="12" min="1" value="" placeholder="DD" maxlength="2" value="12">
     <input type="text" id="month" min="1" max="31" placeholder="MM" maxlength="2">
     <input type="text" id="year" placeholder="YYYY" maxlength="4">
-    <button type="submit" value="submit" name="submit" id="submit" class="">submit</button>
+    <button type="submit" value="submit" name="submit" id="verification_submit" class="verify">submit</button>
     </div>
 
     <script>
@@ -46,15 +46,18 @@
 
             $('input').keyup(function(){
                 if( expD.test($('#day').val()) && expM.test($('#month').val()) && expY.test($('#year').val())){
+                    console.log('格式正確')
                     if( $('#day').val().length == 2 && $('#month').val().length == 2 && $('#year').val().length == 4){
-                            $('#submit').prop('disabled',false)
+                            $('#verification_submit').prop('disabled',false).addClass("verifyPass")
+                    }else{
+                            $('#verification_submit').prop('disabled',true).removeClass("verifyPass")
                     }
                 }else{
-                    $('#submit').prop('disabled',true)
+                    $('#verification_submit').prop('disabled',true).removeClass("verifyPass")
                 }
             })
 
-            $('#submit').prop('disabled',true).click(function(){
+            $('#verification_submit').prop('disabled',true).click(function(){
                 let d = parseInt( today.getFullYear() - $('#year').val());
 
                 if ( d >18 ){
