@@ -172,9 +172,7 @@ section h2{
     transition: .3s;
 }
 
-.main-nav-member-shop .bi-cart:hover + .shopping-cart-hover{
-    display: block;
-}
+
 
 .shopping-cart-hover{
     display: none;
@@ -743,9 +741,7 @@ div[class^="sub-page-top-cover-img-"]  img{
     display:block;
 }
 
-.btn-checkout:hover, .btn-coupon-apply:hover{
-    background-color: #fff;
-}
+
 
 /* ******************** greenstore*/
 
@@ -814,12 +810,10 @@ div[class^="sub-page-top-cover-img-"]  img{
     cursor: pointer;
 }
 
-.add-to-cart button:hover {
-background-color: #fff;
-}
+
 /* ******************** about-us*/
 
-.about-us h2, .product-slogan h2{
+.about-us h2{
     text-align: left;
 }
 
@@ -1154,9 +1148,7 @@ h1{
     border-radius: 5px;
     cursor: pointer;
 }
-.confirm_deletion button:hover{
-    box-shadow: inset 2px 2px 2px #aaaca3;
-}
+
 .confirm_deletion img{
     width: 30%;
     margin: auto;

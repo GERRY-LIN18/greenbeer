@@ -114,6 +114,20 @@
 
 }
 @media screen and (min-width: 768px){
+    .checkoutPage-box .empty-cart{
+        height: 100px;
+        line-height: 100px;
+    }
+    .btn-checkout:hover, .btn-coupon-apply:hover{
+        background-color: #fff;
+    }
+    .confirm_deletion button:hover{
+        box-shadow: inset 2px 2px 2px #aaaca3;
+    }
+    .main-nav-member-shop .bi-cart:hover + .shopping-cart-hover{
+        display: block;
+    }
+
     .shopping-cart-hover{
         width: 300px;
         position:absolute;
@@ -126,7 +140,9 @@
         border-radius: 10px;
         /* display: none; */
     }
-
+    .add-to-cart button:hover {
+        background-color: #fff;
+        }
 
 
     .catalog-wine-card{
@@ -292,7 +308,7 @@
     .mainpage-follow-tag h2:hover{
         color: #F6D042;
     }
-    .main-nav>a:hover, .main-nav-member-shop .bi:hover{
+    .main-nav>a:hover, .main-nav-member-shop> a >.bi:hover{
         color: #fff;
         background-color: #006837;
     }

@@ -60,8 +60,6 @@ window.addEventListener("load", function(){
 
     lineupChange.onclick = lineup;
 
-
-            
 });
 
 

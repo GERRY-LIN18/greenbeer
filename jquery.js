@@ -131,20 +131,27 @@ $(document).ready(function(){
         },'1000');
     })
 
-    $('.shopping-cart-hover').mouseenter(function(){
+    let Fadeout;
+
+    $('.shopping-cart-hover').stop().mouseenter(function(){
+        console.log('滑鼠進入')
+
         clearTimeout(bi_cartfadeout);
         clearTimeout(addtocartFadeout);
+        clearTimeout(Fadeout);
+
         $(this).show()
     }).mouseleave(function(){
         console.log('滑鼠離開')
-        addtocartFadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'2000')
+        Fadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'2000')
 
     })
     
     // shopping_cart.html
 
-    let emptyCart = function emptyCart(){
-        if(empty){
+    function emptyCart(e){
+        console.log('我執行了一次')
+        if(e == true ){
             $('.checkoutPage-title').after(`<div class="empty-cart">it's Empty</div>`)
             console.log('購物車空的')
         }
@@ -153,6 +160,7 @@ $(document).ready(function(){
     let discount = function discount(){
         console.log($('.discount-price').text())
     }
+
     discount()
 
     let subtotal= 0
@@ -168,32 +176,31 @@ $(document).ready(function(){
         }
     }
 
-    if(empty) {
-        emptyCart()
-    }else
-    {
-        for(let i=0 ; i< catalog.length ; i++){
-            subtotal += catalog[i].price * catalog[i].num
-            $('.coupon-box-border').before(`
-                <div class="checkoutPage_boxPurchaseItem">
-                    <div class="purchaseCheck_Item">
-                        <div class="purchaseCheck_Item_img">
-                            <img src="`+catalog[i].src +`" alt="">
-                        </div>
-                        <div class="purchaseCheck_Item_name">`+catalog[i].cardName +`</div>
-                    </div>
-                    <div class="purchaseCheck_price">$`+catalog[i].price +`</div>
-                    <div class="purchaseCheck_quantity">
-                        <input type="number" placeholder="1" min="1" value="`+catalog[i].num +`">
-                    </div>
-                    <div class="purchaseCheck_total">$`+ catalog[i].price * catalog[i].num +`</div>
-                    <div class="purchaseCheck_cancel"><i class="bi bi-x-lg"></i></div>
-                </div>
-            `)
-        }
 
-        totalPrice()
+
+    
+    for(let i=0 ; i< catalog.length ; i++){
+        subtotal += catalog[i].price * catalog[i].num
+        $('.coupon-box-border').before(`
+            <div class="checkoutPage_boxPurchaseItem">
+                <div class="purchaseCheck_Item">
+                    <div class="purchaseCheck_Item_img">
+                        <img src="`+catalog[i].src +`" alt="">
+                    </div>
+                    <div class="purchaseCheck_Item_name">`+catalog[i].cardName +`</div>
+                </div>
+                <div class="purchaseCheck_price">$`+catalog[i].price +`</div>
+                <div class="purchaseCheck_quantity">
+                    <input type="number" placeholder="1" min="1" value="`+catalog[i].num +`">
+                </div>
+                <div class="purchaseCheck_total">$`+ catalog[i].price * catalog[i].num +`</div>
+                <div class="purchaseCheck_cancel"><i class="bi bi-x-lg"></i></div>
+            </div>
+        `)
     }
+
+    totalPrice()
+    
 
     let q = 0
 
@@ -204,7 +211,7 @@ $(document).ready(function(){
         $('.purchaseCheck_quantity input').eq(i).blur(function(){
             let quantity = $(this).val()
             catalog[i].num = parseInt(quantity) ;
-            $('.purchaseCheck_total').eq(i).text( catalog[i].price * catalog[i].num )
+            $('.purchaseCheck_total').eq(i).text( '$' + catalog[i].price * catalog[i].num )
             totalPrice()
         })
 
@@ -225,7 +232,6 @@ $(document).ready(function(){
 
 
     $('#delete').click(function(){
-        console.log(empty)
 
         $('.confirm_deletion').hide()
         $('.checkoutPage_boxPurchaseItem').eq(q).fadeOut()
@@ -235,20 +241,27 @@ $(document).ready(function(){
         
         for(let i=0 ; i< catalog.length ; i++){
             if ( catalog[i].num != 0 ) {
+                console.log('購物車有東西1')
                 break
             } 
-            for(let j=0 ; j< catalog.length ; j++){
+            for(let j=i+1 ; j< catalog.length ; j++){
                 if ( catalog[j].num != 0 ) {
-                    
+                   console.log('購物車還有東西')
                     break
                 }
                     empty = true
+                    console.log('購物車沒有東西')
 
+            }
+            if (empty) {
+                console.log('購物車有東西2')
 
+                break
             }
             
         }
-        setTimeout ( emptyCart , '1000')
+        setTimeout ( emptyCart( empty ) , '1000')
     })
+
 
 })  
