@@ -22,6 +22,7 @@ $(document).ready(function(){
 
     if(! localStorage.getItem('cart')){
         localStorage.setItem('cart', JSON.stringify(catalog))
+
     }else{
         catalog = JSON.parse(localStorage.getItem('cart'))
     }
@@ -59,6 +60,7 @@ $(document).ready(function(){
     $('.shopping-cart-hover .shopping-cart-box').append(cartCard);
 
     let empty =true;
+
     for(let i=0 ; i<catalog.length ; i++){
         if (catalog[i].num == 0) {
             $('.shopping-cart-box-purchase-item').eq(i).hide()
@@ -76,11 +78,13 @@ $(document).ready(function(){
     }
 
     let addtocartFadeout;
+
     for(let i=0 ; i< catalog.length ; i++){
         $('.add-to-cart button').eq(i).on('click',function(){
             if($(window).width()>=768){
                 $(`.shopping-cart-hover`).show()
-                addtocartFadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'1500')
+
+                addtocartFadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'2000')
             }
             else { $(`.cartTips`).fadeIn().fadeOut('1500') }
 
@@ -102,7 +106,6 @@ $(document).ready(function(){
             localStorage.setItem('cart', JSON.stringify(catalog))
 
             empty = true
-            console.log(localStorage.getItem('cart'))
             for(let j=0 ; j< catalog.length ; j++){
                 if( catalog[j].num != 0){
                     empty = false;
@@ -133,39 +136,67 @@ $(document).ready(function(){
         clearTimeout(addtocartFadeout);
         $(this).show()
     }).mouseleave(function(){
-        setTimeout(function(){
-            $('.shopping-cart-hover').fadeOut()
-        },'1500');
+        console.log('滑鼠離開')
+        addtocartFadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'2000')
+
     })
     
     // shopping_cart.html
-    if(empty) {
-        $('.checkoutPage-title').after(`<div class="empty-cart">it's Empty</div>`)
-    }
-    let subtotal=0
-    for(let i=0 ; i< catalog.length ; i++){
-        subtotal += catalog[i].price * catalog[i].num
-        $('.coupon-box-border').before(`
-            <div class="checkoutPage_boxPurchaseItem">
-                <div class="purchaseCheck_Item">
-                    <div class="purchaseCheck_Item_img">
-                        <img src="`+catalog[i].src +`" alt="">
-                    </div>
-                    <div class="purchaseCheck_Item_name">`+catalog[i].cardName +`</div>
-                </div>
-                <div class="purchaseCheck_price">$`+catalog[i].price +`</div>
-                <div class="purchaseCheck_quantity">
-                    <input type="number" placeholder="1" min="1" value="`+catalog[i].num +`">
-                </div>
-                <div class="purchaseCheck_total">$`+ catalog[i].price * catalog[i].num +`</div>
-                <div class="purchaseCheck_cancel"><i class="bi bi-x-lg"></i></div>
-            </div>
-        `)
-    }
-    $('.subtotal-price').text(`$` + subtotal)
-    $('.total-price').text(`$` + (subtotal - $('.discount-price').text().slice(2)))
 
-    console.log($('.discount-price').text().slice(2))
+    let emptyCart = function emptyCart(){
+        if(empty){
+            $('.checkoutPage-title').after(`<div class="empty-cart">it's Empty</div>`)
+            console.log('購物車空的')
+        }
+    }
+    
+    let discount = function discount(){
+        console.log($('.discount-price').text())
+    }
+    discount()
+
+    let subtotal= 0
+
+
+    let totalPrice = function totalPrice() {
+        subtotal= 0
+        for(let i=0 ; i< catalog.length ; i++){
+            subtotal += catalog[i].price * catalog[i].num
+
+            $('.subtotal-price').text(`$` + subtotal)
+            $('.total-price').text(`$` + (subtotal - $('.discount-price').text().slice(2)))
+        }
+    }
+
+    if(empty) {
+        emptyCart()
+    }else
+    {
+        for(let i=0 ; i< catalog.length ; i++){
+            subtotal += catalog[i].price * catalog[i].num
+            $('.coupon-box-border').before(`
+                <div class="checkoutPage_boxPurchaseItem">
+                    <div class="purchaseCheck_Item">
+                        <div class="purchaseCheck_Item_img">
+                            <img src="`+catalog[i].src +`" alt="">
+                        </div>
+                        <div class="purchaseCheck_Item_name">`+catalog[i].cardName +`</div>
+                    </div>
+                    <div class="purchaseCheck_price">$`+catalog[i].price +`</div>
+                    <div class="purchaseCheck_quantity">
+                        <input type="number" placeholder="1" min="1" value="`+catalog[i].num +`">
+                    </div>
+                    <div class="purchaseCheck_total">$`+ catalog[i].price * catalog[i].num +`</div>
+                    <div class="purchaseCheck_cancel"><i class="bi bi-x-lg"></i></div>
+                </div>
+            `)
+        }
+
+        totalPrice()
+    }
+
+    let q = 0
+
     for(let i=0 ; i< catalog.length ; i++){
         if(catalog[i].num== 0 ){
             $('.checkoutPage_boxPurchaseItem').eq(i).hide()
@@ -173,64 +204,51 @@ $(document).ready(function(){
         $('.purchaseCheck_quantity input').eq(i).blur(function(){
             let quantity = $(this).val()
             catalog[i].num = parseInt(quantity) ;
-            console.log(catalog)
-            console.log(quantity)
             $('.purchaseCheck_total').eq(i).text( catalog[i].price * catalog[i].num )
+            totalPrice()
         })
 
         $('.purchaseCheck_cancel i').eq(i).click(function(){
             $('.confirm_deletion').show()
             $('.confirm_deletion img').attr('src', catalog[i].src)
-            console.log(i)
-
-            $('#cancel').click(function(){
-            $('.confirm_deletion').hide()
-            })
-            $('#delete').click(function(){
-                $('.confirm_deletion').hide()
-                $('.checkoutPage_boxPurchaseItem').eq(i).hide()
-                catalog[i].num = 0
-                localStorage.setItem('cart', JSON.stringify(catalog))
-                console.log(catalog)
-
-            })
+            q=i
+            console.log(q)
         })
+
+        
+        $('#cancel').click(function(){
+            $('.confirm_deletion').hide()
+        })
+
+
     }
 
-          
 
-    // $('.discount-price').html(`-$0`)
-    // let subPrice = 0;
-    // for(let i=0 ;i<cartData.length ; i++){
-    //     subPrice += parseInt($('.purchase-cart-total').eq(i).text())
-    // }
+    $('#delete').click(function(){
+        console.log(empty)
 
-    // $('.subtotal-price').html(`$` + subPrice)
+        $('.confirm_deletion').hide()
+        $('.checkoutPage_boxPurchaseItem').eq(q).fadeOut()
+        catalog[q].num = 0
+        localStorage.setItem('cart', JSON.stringify(catalog))
+        totalPrice()
+        
+        for(let i=0 ; i< catalog.length ; i++){
+            if ( catalog[i].num != 0 ) {
+                break
+            } 
+            for(let j=0 ; j< catalog.length ; j++){
+                if ( catalog[j].num != 0 ) {
+                    
+                    break
+                }
+                    empty = true
 
-    // let totalPrice = 0;
-    // // $('.total-price').html( subPrice- )
 
-    // var discount = [{'AAA111': 111} ,{'BBB111': 87}]
-    // localStorage.setItem('discount', JSON.stringify(discount));
+            }
+            
+        }
+        setTimeout ( emptyCart , '1000')
+    })
 
-
-    // for(let i=0 ;i<cartData.length ; i++){
-    //     $('.purchase-cart-quantity input').eq(i).blur()
-    //     $('.shopping-cart-box .bi').click()
-    // }
-
-    // $('#coupon').blur()
-
-    // $('.purchase-cart-quantity input').blur(function(){
-    //     console.log('s')
-    //     for(let i=0 ;i<cartData.length ; i++){
-    //     console.log('sS')
-
-    //         if( $('.purchase-cart-total').eq(i).text() == 0 ){
-    //         console.log('等於0')
-
-    //             $(`.shopping-cart-flex .shopping-cart-box-purchase-item`).eq(i).hide()
-    //             }
-    //     } 
-    // })
 })  
