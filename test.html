@@ -4,33 +4,125 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="rwd.css">
+    <title>OUR PRODUCT | GREENBEER</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rwd.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+    <script src="js/jquery-3.6.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="jquery.js"></script>
     <style>
-        .confirm_deletion{
-            max-width: 300px;
-            width: 50%;
-            height: 150px;
-            position: fixed;
+        @import url('https://fonts.googleapis.com/css2?family=Acme&family=Boogaloo&family=Titan+One&display=swap');
+        body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        .event_window_outside{
+            width:100%; 
+            /* background-color: #008; */
+            position: relative;
+            height: 80vh;
+            margin: 10vh 0;
+            display: none;
+
+        }
+        .event_window{
+            width:70%; 
+            overflow-x: hidden;
+            overflow-y: scroll;
+            border-radius: 20px;
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             margin: auto;
-            background-color:  #f6d042;
-            color: #222;
-            text-align: center;
-            border-radius: 10px;
-            font-size: 2rem;
+            z-index: 5;
+            padding: 15px;
+            background-color: #ffffff;
+            box-sizing: border-box;
         }
 
+
+        .event_img{
+            margin: -20px -20px 0 -20px;
+        }
+        .event_window .block{
+            color: #000;
+            z-index: 5;
+
+        }
+         .x-square , .caret-left ,.caret-right{
+            position: absolute;
+            z-index: 6;
+            font-size: 30px;
+            background-color: #fff;
+            outline: #008 2px solid;
+            border-radius: 10px;
+            padding: 10px;
+            width: 30px;
+            height: fit-content;
+
+        }
+        .x-square{
+            top: -10%;
+            right:calc(15% - 40px);
+        }
+        .caret-left{
+            top: 0;
+            bottom: 0;
+            left: calc(15% - 40px);
+            margin: auto;
+        }
+        .caret-right{
+            top: 0;
+            bottom: 0;
+            right: calc(15% - 40px);
+            margin: auto;
+        }
     </style>
 </head>
 <body>
-    <div class="confirm_deletion">
-        <p>delete this ?</p>
-        <button id="delete">delete</button>
-        <button id="cancel">cancel</button>
+
+
+
+
+    <div class="event_window_outside">
+        <div class="x-square"><i class="bi bi-x-square"></i></div>
+        <div class="caret-left"><i class="bi bi-caret-left"></i></div>
+        <div class="caret-right"><i class="bi bi-caret-right"></i></div>
+
+        <div class="event_window">
+
+            <div class="event_img">
+                <img src="https://fakeimg.pl/300x200/200">
+            </div>
+            <h2 class="event_window_name">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, molestias.</h2>
+            <p class="event_window_description">
+                Lorem ipsum dolor sit amet.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde quod eum nemo voluptatibus ea earum tempora perferendis beatae, dolore, temporibus rem illum ut animi, minus impedit facilis at dolorum accusantium! earum tempora perfaccusantium!
+            </p>
+        </div>
     </div>
+    <script>
+        $('.x-square').click(function(){
+            $('.event_window_outside').hide()
+        })
+        $('.caret-left').click(function(){
+            $('.event_window').animate({ opacity: '0'}, 'slow')
+            $('.event_window').animate({ opacity: '1'}, 'slow')
+
+            
+        })
+        $('.caret-right').click(function(){
+            $('.event_window').animate({ opacity: '0'}, 'slow')
+            $('.event_window').animate({ opacity: '1'}, 'slow')
+        })
+        
+        
+    </script>
 </body>
 </html>

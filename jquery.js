@@ -71,7 +71,7 @@ $(document).ready(function(){
     }
 
     if(!empty){
-        $('.btn-checkout').show()
+        $('#go_shopping_cart').show()
         $('.empty-cart').hide()
     }else{
 
@@ -83,14 +83,13 @@ $(document).ready(function(){
         $('.add-to-cart button').eq(i).on('click',function(){
             if($(window).width()>=768){
                 $(`.shopping-cart-hover`).show()
-
                 addtocartFadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'2000')
             }
             else { $(`.cartTips`).fadeIn().fadeOut('1500') }
 
             $(`.empty-cart`).hide()
             $('.shopping-cart-box-purchase-item').eq(i).show();
-            $('.btn-checkout').show();
+            $('#go_shopping_cart').show();
 
 
             catalog[i].num += parseInt($('.add-to-cart input').eq(i).val());
@@ -113,7 +112,7 @@ $(document).ready(function(){
                 }
             }
             if(empty) {
-                $('.btn-checkout').hide()
+                $('#go_shopping_cart').hide()
                 $('.empty-cart').show()
             }   
         })
@@ -150,10 +149,12 @@ $(document).ready(function(){
     // shopping_cart.html
 
     function emptyCart(e){
-        console.log('我執行了一次')
+
+
         if(e == true ){
+            
             $('.checkoutPage-title').after(`<div class="empty-cart">it's Empty</div>`)
-            console.log('購物車空的')
+            // console.log('購物車空的')
         }
     }
     
@@ -161,21 +162,67 @@ $(document).ready(function(){
         console.log($('.discount-price').text())
     }
 
+
     discount()
+// 建立折扣碼
+    var discountCode = {
+        OFF1010: 200,
+        PUMPKIN: 198,
+    }
 
-    let subtotal= 0
 
+    if(!localStorage.getItem('discount')){
+        // console.log('沒有折扣馬，建立折扣')
+        localStorage.setItem('discount', JSON.stringify(discountCode))
+    }else{
+        // console.log('折扣馬已經有了')
 
+        discountCode=JSON.parse(localStorage.getItem('discount'))
+    }
+
+//比對折扣碼
+    $('.btn-coupon-apply').on('click',function(){
+        let inputword = $('#coupon').val()
+        console.log(inputword)
+
+        if(Object.keys(discountCode).indexOf(inputword) != -1){
+
+            let x = Object.keys(discountCode).indexOf(inputword)
+
+            console.log(Object.values(discountCode)[x])
+            
+            $('.discount-price').text('-$' + Object.values(discountCode)[x])
+            console.log($('.discount-price').text())
+            
+        }
+
+        totalPrice()
+
+    })
+
+// 計算總金額
+    let subtotal= 0;
+    let total = 0;
     let totalPrice = function totalPrice() {
         subtotal= 0
         for(let i=0 ; i< catalog.length ; i++){
             subtotal += catalog[i].price * catalog[i].num
-
-            $('.subtotal-price').text(`$` + subtotal)
-            $('.total-price').text(`$` + (subtotal - $('.discount-price').text().slice(2)))
         }
+
+        $('.subtotal-price').text(`$` + subtotal)
+
+        if(subtotal - $('.discount-price').text().slice(2) < 0){
+            total = 0
+        }else{
+            total = subtotal - $('.discount-price').text().slice(2)
+        }
+
+        $('.total-price').text(`$`+ total )
+        
     }
 
+    
+        emptyCart(empty)
 
 
     
@@ -234,7 +281,7 @@ $(document).ready(function(){
     $('#delete').click(function(){
 
         $('.confirm_deletion').hide()
-        $('.checkoutPage_boxPurchaseItem').eq(q).fadeOut()
+        $('.checkoutPage_boxPurchaseItem').eq(q).hide()
         catalog[q].num = 0
         localStorage.setItem('cart', JSON.stringify(catalog))
         totalPrice()
@@ -242,24 +289,14 @@ $(document).ready(function(){
         for(let i=0 ; i< catalog.length ; i++){
             if ( catalog[i].num != 0 ) {
                 console.log('購物車有東西1')
+                empty= false
                 break
-            } 
-            for(let j=i+1 ; j< catalog.length ; j++){
-                if ( catalog[j].num != 0 ) {
-                   console.log('購物車還有東西')
-                    break
-                }
-                    empty = true
-                    console.log('購物車沒有東西')
-
-            }
-            if (empty) {
-                console.log('購物車有東西2')
-
-                break
+            } else{
+                empty = true
             }
             
         }
+        console.log(empty)
         setTimeout ( emptyCart( empty ) , '1000')
     })
 

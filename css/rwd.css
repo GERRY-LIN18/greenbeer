@@ -118,7 +118,7 @@
         height: 100px;
         line-height: 100px;
     }
-    .btn-checkout:hover, .btn-coupon-apply:hover{
+    .btn-checkout:hover, .btn-coupon-apply:hover ,.btn-pay:hover{
         background-color: #fff;
     }
     .confirm_deletion button:hover{
@@ -138,6 +138,7 @@
         border: #000 5px solid;
         padding: 5px;
         border-radius: 10px;
+        text-align: center;
         /* display: none; */
     }
     .add-to-cart button:hover {
@@ -170,9 +171,6 @@
         
     }
 
-
-
-
     /* ******************** about-us*/
     .our-history, .brewing-beer, .sustainability{
         display: flex;
@@ -195,7 +193,9 @@
     }
 /* ******************** mainpage*/
 
-    html {font-size: 20px;}
+    html {
+        font-size: 20px;
+    }
     .about-us p , .product-slogan p{
         font-size: 16px;
         line-height: 22px;
@@ -251,8 +251,6 @@
     }
 /* ******************** mainpage-event*/
 
-
-
     .event-list {
         display: grid;
         grid-template-columns: repeat(3,1fr);
@@ -266,10 +264,7 @@
         grid-row:span 2;
         grid-column: span 2;
     }
-    /* .event-card:hover {
-        background-size: 160%;
 
-    } */
     .event-list .event-card{
         width: calc(100% / 3  -20px);
 
@@ -320,8 +315,8 @@
     } 
 
     .btn a:hover{
-        background-color: #006837;
-        color: #F6D042;
+        background-color: #fff;
+        color: #006837;
     }
 
 

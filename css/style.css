@@ -43,6 +43,34 @@ table {
 }
 
 /* ******************** */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+    }
+
+/* 網頁捲軸【背景】顏色 */
+::-webkit-scrollbar-track {
+border-radius: 5px;
+
+}
+
+/* 網頁捲軸【把手】顏色 */
+::-webkit-scrollbar-thumb {
+background: #aaa;
+border-radius: 5px;
+}
+
+/* 網頁捲軸【滑過時】把手的顏色 */
+::-webkit-scrollbar-thumb:hover {
+background: #888;
+}
+
+svg {
+    vertical-align: middle;
+    width: 100%;
+}
+
 .container{
     max-width: 1200px;
     margin:auto;
@@ -172,8 +200,6 @@ section h2{
     transition: .3s;
 }
 
-
-
 .shopping-cart-hover{
     display: none;
 }
@@ -182,7 +208,7 @@ section h2{
     text-align: center;
 }
 
-.shopping-cart-hover .btn-checkout{
+.shopping-cart-hover #go_shopping_cart{
     display: none;
 }
 
@@ -387,10 +413,8 @@ section .mainpage-event-slogan h2{
     margin: 10px;
     min-height: 200px;
     padding: 20px;
-}
-.event-list .event-card{
     background-size: 150%;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     transition: .3s;
 }
@@ -497,7 +521,7 @@ footer input {
     border-radius: 0.3rem;
     background-color: #F6D042;
     border: 1px solid #F6D042;
-
+    cursor: pointer;
 }
 
 .icon-link p{
@@ -553,6 +577,7 @@ div[class^="sub-page-top-cover-img-"]  img{
     margin: auto;
     font-family: 'Boogaloo', cursive;
     font-size: 5rem;
+    line-height: 4rem;
     color: #ebebeb;
     -webkit-text-stroke: .2rem #006837;
 }
@@ -643,6 +668,9 @@ div[class^="sub-page-top-cover-img-"]  img{
     margin: auto;
     width: 10%;
 }
+.purchaseCheck_cancel i {
+    cursor: pointer;
+}
 
 .purchase-cart-quantity input,
 .purchaseCheck_quantity input{
@@ -675,18 +703,20 @@ div[class^="sub-page-top-cover-img-"]  img{
     margin: 10px 5px 10px auto;
     border: .2rem solid #aaa;
     border-radius: .3rem;
+    text-align: center;
 }
 
 .coupon-box-border p {
     font-size: 20px;
 }
 
-.coupon-box-border .total{
+.coupon-box-border .total , .total-price{
     font-weight: 600;
 }
 
 #coupon {
     height: 30px;
+    font-size: 16px;
 }
 
 .coupon-box-border [class *= '-box'] {
@@ -738,7 +768,8 @@ div[class^="sub-page-top-cover-img-"]  img{
     color:#222;
     border-radius: .3rem;
     margin: auto;
-    display:block;
+    display: inline-block;
+    cursor: pointer;
 }
 
 
@@ -838,24 +869,27 @@ div[class^="sub-page-top-cover-img-"]  img{
     display: flex;
     flex-wrap:wrap;
     align-items: center;
+    margin: 0 0 50px;
 }
 .product-card{
     position: relative;
     aspect-ratio: 1 / 1 ;
-    background: linear-gradient(to right, #f3f9a7 ,#cac531);
+    background: #ffe14e;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .product-card:nth-child(4n+1){
-    background: linear-gradient(to right, #dce35b, #45b649); 
+    background: #ffe568; 
 }
 
 .product-card:nth-child(4n+2){
-    background: linear-gradient(to right, #a8ff78, #78ffd6);
+    background: #ffea83;
 }
-
+.product-card:nth-child(4n+3){
+    background: #ffee9d;
+}
 .product-card-name{
     position: absolute;
     bottom: 1rem;
@@ -984,8 +1018,9 @@ div[class^="sub-page-top-cover-img-"]  img{
 }
 
 .product-introduction span{
-    font-size: 14px;
+    font-size: .8rem;
     line-height: 50px;
+    padding-left: 20px;
 }
 
 .values h2 {
@@ -1001,12 +1036,31 @@ div[class^="sub-page-top-cover-img-"]  img{
     line-height: 1rem;
     text-align: center;
 }
+.values h2 .bi-chevron-down{
+    font-size: 1.2rem;
+    transition: .5s;
+    transform: rotate(180deg);
+}
 
 .values table{
     width: calc(80% - 20px);
     margin: 5px auto;
     font-size: .8rem;
-    border: 1px solid red;
+    overflow: hidden;    
+
+}
+.table_box{
+    margin: 10px 0;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: .5s;
+}
+
+.table_box_click{
+    height: 308px;
+    opacity: 1;
+
 }
 
 .values table tr{
@@ -1023,6 +1077,77 @@ div[class^="sub-page-top-cover-img-"]  img{
 }
 
 /* ******************** subpage-event*/
+
+.event_window_outside{
+    width:100%; 
+    background-color: rgba(28, 28, 30, 0.784);
+    position: fixed;
+    z-index: 7;
+    height: 80vh;
+    padding: 10vh 0;
+    /* display: none; */
+
+}
+.event_window{
+    width:70%; 
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-radius: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 5;
+    padding: 15px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    height: 80%;
+}
+
+.event_img{
+    margin: -20px -20px 0 -20px;
+    width: 120%;
+    aspect-ratio: 5 / 3 ;
+}
+.event_img img{
+    object-fit: cover;
+}
+.event_window .block{
+    color: #000;
+    z-index: 5;
+
+}
+ .x-square , .caret-left ,.caret-right{
+    position: absolute;
+    z-index: 6;
+    font-size: 30px;
+    background-color: #fff;
+    outline: #008 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+    width: 30px;
+    height: fit-content;
+
+}
+.x-square{
+    top: 10%;
+    right:calc(15% - 40px);
+}
+.caret-left{
+    top: 0;
+    bottom: 0;
+    left: calc(15% - 40px);
+    margin: auto;
+}
+.caret-right{
+    top: 0;
+    bottom: 0;
+    right: calc(15% - 40px);
+    margin: auto;
+}
+
 section.event{
     margin: 10px auto;
 }
@@ -1032,28 +1157,33 @@ section.event{
     background-size : cover;
 }
 .event-card:first-child {
-    background-image: url('pic/beer_20.jpg');
+    background-image: url('../pic/event_0.jpg');
 }
 .event-card:nth-child(2){
-    background-image: url('pic/beer_23.jpg');
+    background-image: url('../pic/event_1.jpg');
 }
 .event-card:nth-child(3){
-    background-image: url('pic/beer_22.jpg');
+    background-image: url('../pic/event_2.jpg');
 }
 .event-card:nth-child(4){
-    background-image: url('pic/beer_23.jpg');
+    background-image: url('../pic/event_3.jpg');
 }
 .event-card:nth-child(5){
-    background-image: url('pic/beer_22.jpg');
+    background-image: url('../pic/event_4.jpg');
 }
 .event-card:nth-child(6){
-    background-image: url('pic/beer_22.jpg');
+    background-image: url('../pic/event_5.jpg');
 }
 
 .disappear {
     display: none;
     margin-top: 0px;
     transition: .4s;
+}
+
+.disappear_window{
+    display: none;
+    
 }
 
 /* ******************** verification*/

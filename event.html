@@ -6,16 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVENT | GREENBEER</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="rwd.css">
-    <link rel="stylesheet" href="rwd768.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rwd.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+    <script src="js/jquery-3.6.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="jquery.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Acme&family=Boogaloo&family=Noto+Sans+TC:wght@300;400;500;700&family=Titan+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Acme&family=Boogaloo&family=Titan+One&display=swap');
         body {
             font-family: "Trebuchet MS", Helvetica, sans-serif;
         }
     </style>
 </head>
 <body>
+    <div class="event_window_outside disapear disappear_window">
+        <div class="x-square"><i class="bi bi-x-square"></i></div>
+        <div class="caret-left"><i class="bi bi-caret-left"></i></div>
+        <div class="caret-right"><i class="bi bi-caret-right"></i></div>
+
+        <div class="event_window">
+
+            <div class="event_img">
+                <img src="https://fakeimg.pl/300x200/200">
+            </div>
+            <h2 class="event_window_name">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, molestias.</h2>
+            <p class="event_window_description">
+                Lorem ipsum dolor sit amet.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde quod eum nemo voluptatibus ea earum tempora perferendis beatae, dolore, temporibus rem illum ut animi, minus impedit facilis at dolorum accusantium! earum tempora perfaccusantium!
+            </p>
+        </div>
+    </div>
     <div class="warning-sign">
         <p class="warning-sign-slogan">
             To secure your safety, do not drink and drive.<br>Please do not drink if you are a minor</p>
@@ -59,7 +83,9 @@
                         </div>
 
                     </div>
-                    <button class="btn-checkout"><a href="shopping_cart.html">CHECK OUT</a></button>
+                    <a href="shopping_cart.html" id="go_shopping_cart">
+                        <button class="btn-checkout">CHECK OUT</button>
+                    </a>
                 </div>
             </div>
     </header>
@@ -83,37 +109,37 @@
     <section class="event container">
         <div class="event-card">
             <div class="event-card-txt">
-                <div class="event-card-name">GreenBeer Festival</div>
+                <div class="event-card-name">GreenBeer AAA Festival</div>
                 <div class="event-card-description">Sep 30, 2000-Oct 2, 2000</div>
             </div>    
         </div>
         <div class="event-card">
             <div class="event-card-txt">
-                <div class="event-card-name">GreenBeer Festival</div>
+                <div class="event-card-name">GreenBeer BBB Festival</div>
                 <div class="event-card-description">Sep 30, 2000-Oct 2, 2000</div>
             </div>    
         </div>
         <div class="event-card">
             <div class="event-card-txt">
-                <div class="event-card-name">GreenBeer Festival</div>
+                <div class="event-card-name">GreenBeer CCC Festival</div>
                 <div class="event-card-description">Sep 30, 2000-Oct 2, 2000</div>
             </div>    
         </div>
         <div class="event-card">
             <div class="event-card-txt">
-                <div class="event-card-name">GreenBeer Festival</div>
+                <div class="event-card-name">GreenBeer DDD Festival</div>
                 <div class="event-card-description">Sep 30, 2000-Oct 2, 2000</div>
             </div>    
         </div>
         <div class="event-card">
             <div class="event-card-txt">
-                <div class="event-card-name">GreenBeer Festival</div>
+                <div class="event-card-name">GreenBeer EEE Festival</div>
                 <div class="event-card-description">Sep 30, 2000-Oct 2, 2000</div>
             </div>    
         </div>
         <div class="event-card">
             <div class="event-card-txt">
-                <div class="event-card-name">GreenBeer Festival</div>
+                <div class="event-card-name">GreenBeer FFF Festival</div>
                 <div class="event-card-description">Sep 30, 2000-Oct 2, 2000</div>
             </div>    
         </div>
@@ -136,5 +162,6 @@
             </p>
         </div>
     </footer> 
+    <script src="event_click.js"></script>
 </body>
 </html>
