@@ -625,6 +625,9 @@ div[class^="sub-page-top-cover-img-"]  img{
     margin: 5px;
     border: 1px solid rgb(38, 180, 142);
 }
+.shopping-cart-box-purchase-item{
+    /* display: none; */
+}
 
 .cart-item, .purchase-cart-item,
 .check_item, .purchaseCheck_Item {
@@ -1183,7 +1186,16 @@ section.event{
 
 .disappear_window{
     display: none;
-    
+}
+.event_window .event_window_name{
+    font-family: 'Acme', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+.event_window p.event_window_description{
+    line-height: 2rem;
+    font-family: 'Acme', sans-serif;
 }
 
 /* ******************** verification*/

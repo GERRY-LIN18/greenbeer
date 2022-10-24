@@ -42,7 +42,8 @@ $(document).ready(function(){
             <div class="add-to-cart">
                 <input type="number" id="" placeholder="1" value="1" min="1">
                 <button>ADD TO CART</button></div>
-        </div>`;
+            </div>
+        `;
 
         cartCard+= `<div class="shopping-cart-box-purchase-item">
                     <div class="purchase-cart-item">
@@ -56,30 +57,53 @@ $(document).ready(function(){
                     </div>`;
     }
 
+
     $(`.catalog-wine-box`).html(wineCard);
+    
+
+
+
+
+    console.log(cartCard)
+
     $('.shopping-cart-hover .shopping-cart-box').append(cartCard);
+    console.log($('.shopping-cart-hover .shopping-cart-box').html())
+
+
+
+
+
+
+
+
 
     let empty =true;
 
     for(let i=0 ; i<catalog.length ; i++){
         if (catalog[i].num == 0) {
+            console.log( "空的"+ catalog[i].num)
             $('.shopping-cart-box-purchase-item').eq(i).hide()
         }else{
+            console.log( "有東西"+ catalog[i].num)
+
             $('.shopping-cart-box-purchase-item').eq(i).show()
             empty = false;
         }
     }
 
+    console.log( "有東西"+ empty)
+
     if(!empty){
         $('#go_shopping_cart').show()
         $('.empty-cart').hide()
     }else{
-
+        
     }
 
     let addtocartFadeout;
 
     for(let i=0 ; i< catalog.length ; i++){
+        console.log(i)
         $('.add-to-cart button').eq(i).on('click',function(){
             if($(window).width()>=768){
                 $(`.shopping-cart-hover`).show()
@@ -118,6 +142,7 @@ $(document).ready(function(){
         })
     }
     
+    //滑鼠移入選單 icon
     let bi_cartfadeout ;
     
     $('.bi-cart').mouseenter(function(){
@@ -130,6 +155,8 @@ $(document).ready(function(){
         },'1000');
     })
 
+
+    // 滑鼠移入懸浮購物車
     let Fadeout;
 
     $('.shopping-cart-hover').stop().mouseenter(function(){
@@ -158,12 +185,7 @@ $(document).ready(function(){
         }
     }
     
-    let discount = function discount(){
-        console.log($('.discount-price').text())
-    }
 
-
-    discount()
 // 建立折扣碼
     var discountCode = {
         OFF1010: 200,
