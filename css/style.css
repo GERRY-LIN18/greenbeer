@@ -100,12 +100,12 @@ a{
     margin: 1.303780%;
     font-family: 'Boogaloo', cursive;
     font-size: 1.6rem;
-    line-height: 1.4rem;
+    line-height: 1.5rem;
     border-radius: 1.25rem;
     transition: .2s;
-    border: 0.3125rem solid transparent;
     background-color: #006837;
     color: #fff;
+    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
 }
 
 
@@ -169,6 +169,7 @@ section h2{
     padding: 10px;
     background-color: #F6D042;
     transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 #menu-switch ,.menu-switch{
     display: none;
@@ -410,13 +411,16 @@ section .mainpage-event-slogan h2{
 }
 
 .event-list .event-card {
+    border-radius: 10px;
     margin: 10px;
     min-height: 200px;
-    padding: 20px;
+    padding: 10px;
     background-size: 150%;
     background-position: center;
     background-repeat: no-repeat;
     transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
 }
 
 .event-card-txt{
@@ -433,8 +437,16 @@ section .mainpage-event-slogan h2{
     font-family: 'Acme', sans-serif;
 }
 
+.event-card-time{
+    color: white;
+    font-size: .8rem;
+    line-height: 1.2rem;
+
+
+}
 .event-card-description{
     color: white;
+    display: none;
 }
 
 .greenbeer-festival-more{
@@ -623,11 +635,8 @@ div[class^="sub-page-top-cover-img-"]  img{
 .checkoutPage_boxPurchaseItem{
     display: flex;
     margin: 5px;
-    border: 1px solid rgb(38, 180, 142);
 }
-.shopping-cart-box-purchase-item{
-    /* display: none; */
-}
+
 
 .cart-item, .purchase-cart-item,
 .check_item, .purchaseCheck_Item {
@@ -760,7 +769,7 @@ div[class^="sub-page-top-cover-img-"]  img{
     vertical-align: middle;
     color: #000;
     border-radius: .3rem;
-}
+box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;}
 
 .btn-checkout , .btn-pay{
     width: 10rem;
@@ -773,6 +782,7 @@ div[class^="sub-page-top-cover-img-"]  img{
     margin: auto;
     display: inline-block;
     cursor: pointer;
+box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 
@@ -881,6 +891,8 @@ div[class^="sub-page-top-cover-img-"]  img{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
 .product-card:nth-child(4n+1){
@@ -1094,7 +1106,7 @@ div[class^="sub-page-top-cover-img-"]  img{
 .event_window{
     width:70%; 
     overflow-x: hidden;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     border-radius: 20px;
     position: fixed;
     top: 0;
@@ -1110,15 +1122,14 @@ div[class^="sub-page-top-cover-img-"]  img{
 }
 
 .event_img{
-    margin: -20px -20px 0 -20px;
-    width: 120%;
-    aspect-ratio: 5 / 3 ;
+    margin: -15px -15px 10px -15px;
+    width: calc(100% + 30px);
+    aspect-ratio: 2 / .8 ;
 }
 .event_img img{
     object-fit: cover;
 }
 .event_window .block{
-    color: #000;
     z-index: 5;
 
 }
@@ -1127,37 +1138,45 @@ div[class^="sub-page-top-cover-img-"]  img{
     z-index: 6;
     font-size: 30px;
     background-color: #fff;
-    outline: #008 2px solid;
-    border-radius: 10px;
     padding: 10px;
     width: 30px;
     height: fit-content;
 
 }
 .x-square{
-    top: 10%;
-    right:calc(15% - 40px);
+    position: absolute;
+    top: 10px;
+    right:10px;
+    border-radius: 10px;
+
 }
 .caret-left{
     top: 0;
     bottom: 0;
-    left: calc(15% - 40px);
+    left: calc(15% - 50px);
     margin: auto;
+    border-radius: 10px 0 0 10px;
+
 }
 .caret-right{
     top: 0;
     bottom: 0;
-    right: calc(15% - 40px);
+    right: calc(15% - 50px);
     margin: auto;
+    border-radius: 0 10px 10px 0;
+
 }
 
 section.event{
     margin: 10px auto;
 }
 .event .event-card{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     min-height: 300px;
     padding: 10px;
+    box-sizing: border-box;
     background-size : cover;
+    border-radius: 10px;
 }
 .event-card:first-child {
     background-image: url('../pic/event_0.jpg');
@@ -1186,6 +1205,9 @@ section.event{
 
 .disappear_window{
     display: none;
+}
+.event_window .event_img{
+
 }
 .event_window .event_window_name{
     font-family: 'Acme', sans-serif;

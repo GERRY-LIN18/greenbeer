@@ -1,20 +1,21 @@
 $(document).ready(function(){
     $('.x-square').click(function(){
-        $('.event_window_outside').toggleClass('disappear_window')
-
-        $('body').css('overflow','auto')
+        $('.event_window_outside').addClass('disappear_window')
 
     })
 
     let n
+    let n_num=document.querySelectorAll('.event-card').length
+    console.log()
     $('.caret-left').click(function(){
         $('.event_window').animate({ opacity: '0'}, 200)
         n--
-        if(n ==-1) n=5
+        if(n ==-1) n=n_num-1
         $('.event_img img').attr('src',`pic/event_${n}.jpg`)
         $('.event_window_name').text($('.event-card-name').eq(n).text())
+        $('.event_window_time').text($('.event-card-time').eq(n).text())
         $('.event_window_description').text($('.event-card-description').eq(n).text())
-
+           
         
         $('.event_window').animate({ opacity: '1'}, 200)
         
@@ -22,24 +23,26 @@ $(document).ready(function(){
     $('.caret-right').click(function(){
         $('.event_window').animate({ opacity: '0'}, 200)
         n++;
-        if(n ==6) n=0
+        if(n ==n_num) n=0
         $('.event_img img').attr('src',`pic/event_${n}.jpg`)
         $('.event_window_name').text($('.event-card-name').eq(n).text())
+        $('.event_window_time').text($('.event-card-time').eq(n).text())
         $('.event_window_description').text($('.event-card-description').eq(n).text())
-
+           
         $('.event_window').animate({ opacity: '1'}, 200)
     })
     
     $('.event-card').click(function(){
-        $('body').css('overflow','hidden')
 
         n = $('.event-card').index(this)
         
         $('.event_img img').attr('src',`pic/event_${n}.jpg`)
         $('.event_window_name').text($('.event-card-name').eq(n).text())
+        $('.event_window_time').text($('.event-card-time').eq(n).text())
         $('.event_window_description').text($('.event-card-description').eq(n).text())
             
-        $('.event_window_outside').toggleClass('disappear_window')
+        $('.event_window_outside').removeClass('disappear_window')
 
     })
+
 })
