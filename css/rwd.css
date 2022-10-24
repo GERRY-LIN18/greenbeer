@@ -118,7 +118,7 @@
         height: 100px;
         line-height: 100px;
     }
-    .btn-checkout:hover, .btn-coupon-apply:hover ,.btn-pay:hover{
+    .btn-checkout:hover, .btn-coupon-apply:hover ,.btn-pay:hover ,.btn-submit:hover ,.icon-link a:hover{
         background-color: #fff;
     }
     .confirm_deletion button:hover{
