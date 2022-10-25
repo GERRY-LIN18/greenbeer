@@ -69,6 +69,7 @@ background: #888;
 svg {
     vertical-align: middle;
     width: 100%;
+    height: 100%;
 }
 
 .container{
@@ -105,6 +106,7 @@ a{
     transition: .2s;
     background-color: #006837;
     color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 
@@ -130,7 +132,6 @@ section h2{
     position: fixed;
     z-index: 1;
     width: 100%;
-    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px 0px, rgb(0 0 0 / 20%) 0px 0px 0px inset;
 
 }
 
@@ -146,6 +147,8 @@ section h2{
     height: 70px;
     background-color: #F6D042;
     transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.45) 0 0px 10px 0 ;
+
 }
 
 .warning-sign-slogan{
@@ -170,7 +173,6 @@ section h2{
     padding: 10px;
     background-color: #F6D042;
     transition: .3s;
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 #menu-switch ,.menu-switch{
     display: none;
@@ -426,6 +428,7 @@ section .mainpage-event-slogan h2{
 
 .event-card-txt{
     background-color: #006837ac;
+    border-radius: 10px;
     margin: 20px;
     padding: 10px;
     width: 50%;
@@ -626,7 +629,9 @@ div[class^="sub-page-top-cover-img-"]  img{
     border: .8rem solid #F6D042;
     border-radius: .3rem;
 }
-
+.checkoutPage-title{
+    line-height: 30px;
+}
 .shopping-cart-box-title, .checkoutPage-title{
     font-weight: 600;
 }
@@ -669,6 +674,7 @@ div[class^="sub-page-top-cover-img-"]  img{
     width: 10%;
     text-align: center;
     margin: auto;
+    line-height: 2rem;
 }
 
 .cart-quantity,
@@ -772,8 +778,7 @@ div[class^="sub-page-top-cover-img-"]  img{
     vertical-align: middle;
     color: #000;
     border-radius: .3rem;
-box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;}
-
+}
 .btn-checkout , .btn-pay{
     width: 10rem;
     font-family: 'Acme', sans-serif;
@@ -885,6 +890,7 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
 
 .product-box {
     display: flex;
+    gap: 15px;
     flex-wrap:wrap;
     align-items: center;
     margin: 0 0 50px;
@@ -892,24 +898,23 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
 .product-card{
     position: relative;
     aspect-ratio: 1 / 1 ;
-    background: #ffe14e;
+    background: #dedcdccd;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 10px;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    border-radius: 15px;
 }
 
 .product-card:nth-child(4n+1){
-    background: #ffe568; 
+    background: #cecece; 
 }
 
 .product-card:nth-child(4n+2){
-    background: #ffea83;
+    background: #b5b5b566;
 }
 .product-card:nth-child(4n+3){
-    background: #ffee9d;
-}
+    background: #999999;
+} 
 .product-card-name{
     position: absolute;
     bottom: 1rem;
@@ -1030,8 +1035,8 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
     color: #000;
     text-align: center;
     background-color: #F6D042;
+    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
 }
-
 /* ******************** product-introduction*/
 .page-greenstore{
     padding-bottom: 50px;
@@ -1132,7 +1137,7 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
 .event_img{
     margin: -15px -15px 10px -15px;
     width: calc(100% + 30px);
-    aspect-ratio: 2 / .8 ;
+    aspect-ratio: 2 / 1.2 ;
 }
 .event_img img{
     object-fit: cover;
@@ -1179,12 +1184,13 @@ section.event{
     margin: 10px auto;
 }
 .event .event-card{
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 5px 0px;
     min-height: 300px;
     padding: 10px;
     box-sizing: border-box;
     background-size : cover;
     border-radius: 10px;
+    cursor: pointer;
 }
 .event-card:first-child {
     background-image: url('../pic/event_0.jpg');
@@ -1214,9 +1220,7 @@ section.event{
 .disappear_window{
     display: none;
 }
-.event_window .event_img{
 
-}
 .event_window .event_window_name{
     font-family: 'Acme', sans-serif;
     font-size: 1.8rem;
@@ -1290,24 +1294,33 @@ h1{
     display: none;
 }
 .confirm_deletion{
-    max-width: 300px;
-    width: 50%;
-    height: fit-content;
+    background-color: #00683789;
+    width: 100%;
+    height: 100%;
     position: fixed;
-    z-index: 5;
+    z-index: 3;
+    display: none;
+    
+}
+.confirm_deletion_inside{
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
+    max-width: 300px;
+    width: 50%;
+    height: fit-content;
     background-color:  #f6d042;
     color: #222;
     text-align: center;
     border-radius: 10px;
     box-shadow: 6px 6px 10px rgba(0,0,0,0.5);
     padding: 10px;
-    display: none;
+    
 }
+
 .confirm_deletion p{
     font-size: 1.2rem;
 }

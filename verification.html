@@ -38,19 +38,32 @@
         $(document).ready(function(){
 
             let today = new Date();
-            let expD = new RegExp(/^[0-1][0-9]/);
-            let expM = new RegExp(/^[0-3][0-9]/);
+            let expD = new RegExp(/^[0-3][0-9]/);
+            let expM = new RegExp(/^[0-1][0-9]/);
             let expY = new RegExp(/^[1-2][0-9][0-9][0-9]/);
 
             $('input').keyup(function(){
+                console.log(expD.test($('#day').val()))
+                console.log(expM.test($('#month').val()))
+                console.log(expY.test($('#year').val()))
+                
                 if( expD.test($('#day').val()) && expM.test($('#month').val()) && expY.test($('#year').val())){
                     console.log('格式正確')
-                    if( $('#day').val().length == 2 && $('#month').val().length == 2 && $('#year').val().length == 4){
+
+                    if( $('#day').val().length == 2 && $('#month').val().length == 2 && $('#year').val().length == 4 &&
+                    $('#day').val()>=1 && $('#day').val()<=31 &&
+                    $('#month').val() >=1 &&  $('#month').val()<=12 && 
+                    $('#year').val() >=1900 && $('#year').val()<= today.getFullYear() ){
                             $('#verification_submit').prop('disabled',false).addClass("verifyPass")
+
+
                     }else{
+                            console.log('數字錯誤')
                             $('#verification_submit').prop('disabled',true).removeClass("verifyPass")
                     }
                 }else{
+                    console.log('格式錯誤')
+
                     $('#verification_submit').prop('disabled',true).removeClass("verifyPass")
                 }
             })
