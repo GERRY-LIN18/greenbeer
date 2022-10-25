@@ -59,39 +59,22 @@ $(document).ready(function(){
 
 
     $(`.catalog-wine-box`).html(wineCard);
-    
-
-
-
-
-    console.log(cartCard)
-
+  
     $('.shopping-cart-hover .shopping-cart-box').append(cartCard);
-    console.log($('.shopping-cart-hover .shopping-cart-box').html())
-
-
-
-
-
-
-
 
 
     let empty =true;
 
     for(let i=0 ; i<catalog.length ; i++){
         if (catalog[i].num == 0) {
-            console.log( "空的"+ catalog[i].num)
             $('.shopping-cart-box-purchase-item').eq(i).hide()
         }else{
-            console.log( "有東西"+ catalog[i].num)
 
             $('.shopping-cart-box-purchase-item').eq(i).show()
             empty = false;
         }
     }
 
-    console.log( "有東西"+ empty)
 
     if(!empty){
         $('#go_shopping_cart').show()
@@ -103,7 +86,6 @@ $(document).ready(function(){
     let addtocartFadeout;
 
     for(let i=0 ; i< catalog.length ; i++){
-        console.log(i)
         $('.add-to-cart button').eq(i).on('click',function(){
             if($(window).width()>=768){
                 $(`.shopping-cart-hover`).show()
@@ -160,7 +142,6 @@ $(document).ready(function(){
     let Fadeout;
 
     $('.shopping-cart-hover').stop().mouseenter(function(){
-        console.log('滑鼠進入')
 
         clearTimeout(bi_cartfadeout);
         clearTimeout(addtocartFadeout);
@@ -168,7 +149,6 @@ $(document).ready(function(){
 
         $(this).show()
     }).mouseleave(function(){
-        console.log('滑鼠離開')
         Fadeout=setTimeout(function(){$(`.shopping-cart-hover`).fadeOut()},'2000')
 
     })
@@ -181,7 +161,6 @@ $(document).ready(function(){
         if(e == true ){
             
             $('.checkoutPage-title').after(`<div class="empty-cart">it's Empty</div>`)
-            // console.log('購物車空的')
         }
     }
     
@@ -194,10 +173,8 @@ $(document).ready(function(){
 
 
     if(!localStorage.getItem('discount')){
-        // console.log('沒有折扣馬，建立折扣')
         localStorage.setItem('discount', JSON.stringify(discountCode))
     }else{
-        // console.log('折扣馬已經有了')
 
         discountCode=JSON.parse(localStorage.getItem('discount'))
     }
@@ -205,17 +182,16 @@ $(document).ready(function(){
 //比對折扣碼
     $('.btn-coupon-apply').on('click',function(){
         let inputword = $('#coupon').val()
-        console.log(inputword)
 
         if(Object.keys(discountCode).indexOf(inputword) != -1){
 
             let x = Object.keys(discountCode).indexOf(inputword)
 
-            console.log(Object.values(discountCode)[x])
             
             $('.discount-price').text('-$' + Object.values(discountCode)[x])
-            console.log($('.discount-price').text())
             
+        }else{
+            $('.discount-price').text('-$0')
         }
 
         totalPrice()
@@ -288,7 +264,6 @@ $(document).ready(function(){
             $('.confirm_deletion').show()
             $('.confirm_deletion img').attr('src', catalog[i].src)
             q=i
-            console.log(q)
         })
 
         
@@ -310,7 +285,6 @@ $(document).ready(function(){
         
         for(let i=0 ; i< catalog.length ; i++){
             if ( catalog[i].num != 0 ) {
-                console.log('購物車有東西1')
                 empty= false
                 break
             } else{
@@ -318,7 +292,6 @@ $(document).ready(function(){
             }
             
         }
-        console.log(empty)
         setTimeout ( emptyCart( empty ) , '1000')
     })
 

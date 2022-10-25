@@ -210,6 +210,8 @@ section h2{
 
 .empty-cart{
     text-align: center;
+    margin: 5px 0;
+    
 }
 
 .shopping-cart-hover #go_shopping_cart{
@@ -631,15 +633,17 @@ div[class^="sub-page-top-cover-img-"]  img{
 }
 .checkoutPage-title{
     line-height: 30px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+
 }
 .shopping-cart-box-title, .checkoutPage-title{
     font-weight: 600;
 }
 .shopping-cart-box-title, .shopping-cart-box-purchase-item,
 .checkoutPage-title,
-.checkoutPage_boxPurchaseItem{
+.checkoutPage_boxPurchaseItem {
     display: flex;
-    margin: 5px;
+    margin: 5px 0;
 }
 
 .checkoutPage-box ,.checkoutPage_boxPurchaseItem{
@@ -721,10 +725,11 @@ div[class^="sub-page-top-cover-img-"]  img{
     max-width: 290px;
     background-color: #fff;
     padding: 10px;
-    margin: 10px 5px 10px auto;
-    border: .2rem solid #aaa;
+    margin: 10px 0px 10px auto;
+    /* border: .2rem solid #aaa; */
     border-radius: .3rem;
     text-align: center;
+    box-shadow: rgb(0 0 0 / 15%) 0px 3px 3px 0px;
 }
 
 .coupon-box-border p {
@@ -756,6 +761,9 @@ div[class^="sub-page-top-cover-img-"]  img{
     font-size: 18px;
     line-height: 30px;
 }
+.coupon-code{
+    text-align: left;
+}
 
 .total-box{
     font-size: 24px;
@@ -778,6 +786,10 @@ div[class^="sub-page-top-cover-img-"]  img{
     vertical-align: middle;
     color: #000;
     border-radius: .3rem;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px,
+    rgba(0, 0, 0, 0.07) 0px 2px 2px, 
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, 
+    rgba(0, 0, 0, 0.07) 0px 8px 8px;
 }
 .btn-checkout , .btn-pay{
     width: 10rem;
@@ -790,7 +802,10 @@ div[class^="sub-page-top-cover-img-"]  img{
     margin: auto;
     display: inline-block;
     cursor: pointer;
-box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px,
+                rgba(0, 0, 0, 0.07) 0px 2px 2px, 
+                rgba(0, 0, 0, 0.07) 0px 4px 4px, 
+                rgba(0, 0, 0, 0.07) 0px 8px 8px;
 }
 
 
@@ -1035,7 +1050,7 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
     color: #000;
     text-align: center;
     background-color: #F6D042;
-    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+    border: #000 solid 1px;
 }
 /* ******************** product-introduction*/
 .page-greenstore{
@@ -1078,8 +1093,11 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
 
 }
 .table_box{
-    margin: 10px 0;
+    margin: 10px auto;
     overflow: hidden;
+    max-width: 600px;
+    width: 80%;
+
     height: 0;
     opacity: 0;
     transition: .5s;
@@ -1088,11 +1106,14 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
 .table_box_click{
     height: 308px;
     opacity: 1;
+    max-width: 600px;
+    margin:auto;
+    width: 80%;
 
 }
 
-.values table tr{
-    border-bottom: 1px solid #888;
+tr {
+   box-shadow: rgb(0 0 0 / 50%) 0px 1px 2px 0px;
 }
 
 .values table td{
@@ -1103,6 +1124,36 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
 .values table tr>td:nth-child(2){
     text-align: right;
 }
+
+.other_products_view{
+    width: calc(100% - 20px);
+    max-width: 1200px;
+    overflow: scroll;
+    margin: 20px auto 50px;
+    position: relative;
+}
+.our_other_product {
+    text-align: center;
+    padding: 20px 0 0;
+}
+.other_products{
+    display: flex;
+    width: 1680px;
+    transition: .5s;
+    position: relative;
+    left: 0;
+
+}
+.other_products .product-card{
+    background-color: #fff;
+}
+
+.other_products .product-card{
+    max-width: 280px;
+    border-radius: 10px;
+
+}
+
 
 /* ******************** subpage-event*/
 
@@ -1157,7 +1208,7 @@ box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rg
 
 }
 .x-square{
-    position: absolute;
+    position: fixed;
     top: 10px;
     right:10px;
     border-radius: 10px;
@@ -1229,7 +1280,10 @@ section.event{
 }
 .event_window p.event_window_description{
     line-height: 2rem;
+}
+.event_window p.event_window_time{
     font-family: 'Acme', sans-serif;
+
 }
 
 /* ******************** verification*/
@@ -1294,7 +1348,7 @@ h1{
     display: none;
 }
 .confirm_deletion{
-    background-color: #00683789;
+    background-color: rgba(136, 136, 136, 0.4);
     width: 100%;
     height: 100%;
     position: fixed;

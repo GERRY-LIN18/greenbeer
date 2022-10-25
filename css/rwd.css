@@ -329,6 +329,9 @@
         align-items: center;
         justify-content: center;
         flex-direction: row-reverse;
+        width: 80%;
+        max-width: 1200px;
+        margin: auto;
     }
 
     .our-product-slogan{

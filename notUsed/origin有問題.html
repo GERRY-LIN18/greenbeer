@@ -121,88 +121,56 @@
                 
             </div>
 
-            
-        </div>
-    </section>
-    <section class="mainpage-lineup"> 
-        <div class="mainpage-lineup-up-white">
-            <img src="pic/subpage_up_white.png" alt="bg-white">
-        </div>
-        <h3 class="our_other_product"> Our other Product </h3>
-        <div class="other_products_view">
-            <div class="other_products">
-                <div class="product-card">
-                    <a href="origin.html">
-                            <div class="product-card-img">
-                            <img src="pic/beer_green.png" alt="green beer">
-                        </div>
-                    </a>
-                    <p class="product-card-name">green beer</p>
-                </div>
-                <div class="product-card">
-                    <a href="origin.html">
-                            <div class="product-card-img">
-                            <img src="pic/beer_green.png" alt="green beer">
-                        </div>
-                    </a>
-                    <p class="product-card-name">green beer</p>
-                </div>
-                <div class="product-card">
-                    <a href="origin.html">
-                            <div class="product-card-img">
-                            <img src="pic/beer_green.png" alt="green beer">
-                        </div>
-                    </a>
-                    <p class="product-card-name">green beer</p>
-                </div>
-                <div class="product-card">
-                    <a href="origin.html">
-                            <div class="product-card-img">
-                            <img src="pic/beer_green.png" alt="green beer">
-                        </div>
-                    </a>
-                    <p class="product-card-name">green beer</p>
-                </div>
-                
-                <div class="product-card">
-                    <a href="origin.html">
-                            <div class="product-card-img">
-                            <img src="pic/beer_block.png" alt="yellow beer">
-                        </div>
-                    </a>
-                    <p class="product-card-name">yellow beer</p>
-                </div>
-                <div class="product-card">
-                    <a href="origin.html">
-                            <div class="product-card-img">
-                            <img src="pic/beer_yellow.png" alt="block beer">
-                        </div>
-                    </a>
-                    <p class="product-card-name">block beer</p>
-                </div>
-                <div class="product-card">
-                    <a href="origin.html">
-                            <div class="product-card-img">
-                            <img src="pic/beer_green_2.png" alt="viridity beer">
-                        </div>
-                    </a>
-                    <p class="product-card-name">viridity beer</p>
-                </div>
-                <div class="product-card">
-                    <a href="origin.html">
-                            <div class="product-card-img">
-                            <img src="pic/beer_green_3.png" alt="red beer">
-                        </div>
-                    </a>
-                    <p class="product-card-name">red beer</p>
-                </div>
-                <div class="product-card">
-                    <a href="origin.html">
-                            <div class="product-card-img">
-                            <img src="pic/beer_green_4.png" alt="pink beer">
-                        </div>
-                    </a>
-                    <p class="product-card-name">pink beer</p>
+            <div class="other_products_view">
+                <div class="other_products">
+                    <div class="product-card">
+                        <a href="origin.html">
+                                <div class="product-card-img">
+                                <img src="pic/beer_green.png" alt="green beer">
+                            </div>
+                        </a>
+                        <p class="product-card-name">green beer</p>
+                    </div>
+                    <div class="product-card">
+                        <a href="origin.html">
+                                <div class="product-card-img">
+                                <img src="pic/beer_block.png" alt="yellow beer">
+                            </div>
+                        </a>
+                        <p class="product-card-name">yellow beer</p>
+                    </div>
+                    <div class="product-card">
+                        <a href="origin.html">
+                                <div class="product-card-img">
+                                <img src="pic/beer_yellow.png" alt="block beer">
+                            </div>
+                        </a>
+                        <p class="product-card-name">block beer</p>
+                    </div>
+                    <div class="product-card">
+                        <a href="origin.html">
+                                <div class="product-card-img">
+                                <img src="pic/beer_green_2.png" alt="viridity beer">
+                            </div>
+                        </a>
+                        <p class="product-card-name">viridity beer</p>
+                    </div>
+                    <div class="product-card">
+                        <a href="origin.html">
+                                <div class="product-card-img">
+                                <img src="pic/beer_green_3.png" alt="red beer">
+                            </div>
+                        </a>
+                        <p class="product-card-name">red beer</p>
+                    </div>
+                    <div class="product-card">
+                        <a href="origin.html">
+                                <div class="product-card-img">
+                                <img src="pic/beer_green_4.png" alt="pink beer">
+                            </div>
+                        </a>
+                        <p class="product-card-name">pink beer</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -294,43 +262,11 @@
             </p>
         </div>
     </footer> 
+    <script src="js/jquery.transform2d.js"></script>
     <script>
 
 
         $(document).ready(function(){
-
-
-            let n=0
-            let x
-            let timer
-            function run(){
-
-                n+=5
-                $('.other_products_view').scrollLeft(n)
-                console.log(x)
-                
-                x=$('.other_products_view').scrollLeft()
-                console.log(x)
-                
-               
-            }
-
-            timer = setInterval( run , 100)
-            
-
-            $('.other_products_view').mouseenter(function(){
-                clearInterval(timer)
-            }).mouseleave(function(){
-                timer = setInterval( run , 100);
-            })
-
-
-
-
-
-
-
-
             
             $('.table_box_click').css('height', $('.table_box').height())
             $('#nutritional_value').on('click',function(){
@@ -341,35 +277,28 @@
                 },500)
             });
             
-            var box=$(".other_products");
-            var body=$('body');
-            var index=0;
-            var x1;
-            box.mousedown(function(){
-                index=1;       //滑鼠按下才能觸發onmousemove方法
-                var x=event.clientX;   //滑鼠點選的座標值，x
-                var left= this.style.left;
-                console.log(left)
-                left=left.substr(0,left.length-2);  //去掉px
-                x1=parseInt(x-left);
-            });
-            box.mousemove(function(){
-                if(index===1){
-                this.style.left=event.clientX-x1+'px';
-                if(this.style.left.substr(0,this.style.left.length-2)<0){
-                    this.style.left=0;
-                };
-                if(this.style.left.substr(0,this.style.left.length-2)> $('.other_products_view').width()){
-                    this.style.left=$('.other_products_view').width();
-                };
-                }
-            });
-            box.mouseup(function(){
-                index=0;
-            });
-            body.mouseup(function(){
-                index=0;
-            });
+            let x
+            let buttdown 
+            let position
+            let site
+            $('.other_products_view').mousedown(function(){
+                buttdown = true
+            }).on('mousemove',function(e){
+                console.log( $(this).offset().left)
+                x = e.pageX
+                position = $('.other_products')[0].style.left
+                console.log(x)
+                console.log(position)
+                site = x+position
+                console.log(site)
+                $('.other_products').css('left', x+position);
+            }).mouseleave(function(){
+                buttdown = false
+                
+                // if (x <$(window).width()){
+                //     $('.other_products').css({transform: `translateX( 0px )`});
+                // }
+            })
 
             // var posX
             // let xxx
