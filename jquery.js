@@ -51,8 +51,8 @@ $(document).ready(function(){
                                 <img src="`+catalog[i].src+`" alt="">
                             </div>
                         </div>
-                        <div class="purchase-cart-price">`+ catalog[i].price+ `</div>
-                        <div class="purchase-cart-quantity">`+catalog[i].num+`</div>
+                        <div class="purchase-cart-price">$`+ catalog[i].price+ `</div>
+                        <div class="purchase-cart-quantity"><input type="number" placeholder="1" min="1" value="`+catalog[i].num+`"></div>
                         <div class="purchase-cart-icon-cancel"><i class="bi bi-x-lg"></i></div>
                     </div>`;
     }
@@ -99,14 +99,14 @@ $(document).ready(function(){
 
 
             catalog[i].num += parseInt($('.add-to-cart input').eq(i).val());
-            $('.purchase-cart-quantity').eq(i).text(catalog[i].num)
+            $('.purchase-cart-quantity input').eq(i).val(catalog[i].num)
             localStorage.setItem('cart', JSON.stringify(catalog))
             
         })
     
         $('.purchase-cart-icon-cancel').eq(i).click(function(){
             $('.shopping-cart-box-purchase-item').eq(i).hide()
-            $('.purchase-cart-quantity').eq(i).text(0)
+            $('.purchase-cart-quantity input').eq(i).val(0)
             catalog[i].num = 0
             localStorage.setItem('cart', JSON.stringify(catalog))
 
@@ -122,6 +122,13 @@ $(document).ready(function(){
                 $('.empty-cart').show()
             }   
         })
+
+        $('.purchase-cart-quantity input').eq(i).blur(function(){
+            catalog[i].num =  parseInt($(this).val())
+            localStorage.setItem('cart', JSON.stringify(catalog))
+
+        })
+        
     }
     
     //滑鼠移入選單 icon
