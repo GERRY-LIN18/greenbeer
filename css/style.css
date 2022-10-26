@@ -1128,7 +1128,7 @@ tr {
 .other_products_view{
     width: calc(100% - 20px);
     max-width: 1200px;
-    overflow: scroll;
+    overflow: hidden;
     margin: 20px auto 50px;
     position: relative;
 }
