@@ -276,7 +276,7 @@
         </div>
         </div>
       </section>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nam, est distinctio, a laboriosam laborum assumenda eveniet incidunt labore natus sunt vitae pariatur quibusdam voluptatum rerum nemo ea reprehenderit alias.
+
     <footer>
         <div class="">STAY IN THE KNOW</div>
         <p>Monthly servings of GREENBEER news, events, offers and chances to win!</p>
@@ -307,12 +307,13 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nam, est
 
                 n+=1
                 $('.other_products_view').scrollLeft(n)
-                console.log(x)
+                // console.log(x)
+                
                 
                 x=$('.other_products_view').scrollLeft()
-                console.log(x)
+                // console.log(x)
                 
-               
+                $('.other_products_view').offset().width
             }
 
             timer = setInterval( run , 10)
@@ -324,8 +325,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nam, est
                 timer = setInterval( run , 10);
             })
 
-
-
+// 捲軸的寬度＝內容的完整寬度 (child.offsetWidth) 減去內容實際的寬度 (parent.clie
 
 
 
