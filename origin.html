@@ -305,7 +305,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nam, est
             let timer
             function run(){
 
-                n+=5
+                n+=1
                 $('.other_products_view').scrollLeft(n)
                 console.log(x)
                 
@@ -315,13 +315,13 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nam, est
                
             }
 
-            timer = setInterval( run , 100)
+            timer = setInterval( run , 10)
             
 
             $('.other_products_view').mouseenter(function(){
                 clearInterval(timer)
             }).mouseleave(function(){
-                timer = setInterval( run , 100);
+                timer = setInterval( run , 10);
             })
 
 

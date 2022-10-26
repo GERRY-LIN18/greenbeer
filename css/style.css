@@ -1138,7 +1138,7 @@ tr {
 }
 .other_products{
     display: flex;
-    width: 1680px;
+    width: 2000px;
     transition: .5s;
     position: relative;
     left: 0;
