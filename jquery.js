@@ -15,7 +15,7 @@ $(document).ready(function(){
         num : 0
     },{
         src :'pic/shop_03.png',
-        cardName : 'green T-shirt',
+        cardName : 'green lighter',
         price : 800 ,
         num : 0
     }]
