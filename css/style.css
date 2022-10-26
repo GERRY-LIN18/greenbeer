@@ -1188,7 +1188,7 @@ tr {
 .event_img{
     margin: -15px -15px 10px -15px;
     width: calc(100% + 30px);
-    aspect-ratio: 2 / 1.2 ;
+    aspect-ratio: 2 / .8 ;
 }
 .event_img img{
     object-fit: cover;
