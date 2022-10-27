@@ -1,0 +1,456 @@
+@media screen and (max-width: 767px){
+    .header_logo{
+        margin: auto;
+    }
+    .menu-switch{
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 10px;
+        height: 50px;
+        width:50px;
+        transform: translateY(10px);
+    }
+    .menu-switch i {
+        font-size: 50px;
+    }
+
+    .menu-switch i.bi-x-square{
+        display: none;
+    }
+
+    #menu-switch:checked ~ header .menu-switch .bi-x-square{
+        display: inline;
+    }
+    #menu-switch:checked ~ header .menu-switch .bi-list{
+        display: none;
+    }
+    .main-nav-member-shop{
+        position:fixed;
+        left: -200%;
+        right: 0;
+        margin: auto;
+        width: fit-content;
+        top: 336px;
+        z-index: 4;
+        transition: .4s;
+    }
+
+    .main-nav{
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        transition: .4s;
+        z-index: -2;
+        padding-bottom: 50.8px;
+    
+    }
+    .main-nav-member-shop .bi{
+        font-size: 1rem;
+        outline: #005 1px solid;
+    }
+
+    #menu-switch:checked + header .main-nav,
+    #menu-switch:checked + header .main-nav-member-shop{
+        left: 0px;
+    } 
+    .main-nav>a ~*::before{
+        content: '';
+        display: block;
+        width: 80%;
+        margin: auto;
+        height: .1rem;
+        transform: translateY(-.7rem);
+        background-color: #4a494d;
+        
+    }
+    .main-nav a{
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+
+    /* ******************** about-us*/
+    .our-history-txt ,.brewing-beer-txt, .sustainability-txt{
+        width: calc(100%  - 40px);
+
+        margin:20px;
+    }
+    .our-history-img, .brewing-beer-img, .sustainability-img{
+        width: 100%;
+        aspect-ratio: 4 / 2.5;
+
+    }
+    /* ******************** product*/
+    .product-card{
+        width: calc(50% - 15px);
+        aspect-ratio: 1 /1;
+        margin: 2px;
+
+    }
+    /* ******************** subpage-event*/
+
+
+
+    .event .event-card{
+        aspect-ratio: 4 / 3;
+        min-height: 200px;
+        margin : 10px 0;
+
+    }
+    .event_img{
+        aspect-ratio: 2 / 1.2;
+    }
+    .catalog-wine-card{
+        width: calc(50% - 30px);
+    }
+    .cart-item, .purchase-cart-item,
+    .check_item, .purchaseCheck_Item {
+        flex-direction: column;
+    }
+
+
+}
+@media screen and (min-width: 768px){
+    .checkoutPage-box .empty-cart{
+        height: 100px;
+        line-height: 100px;
+    }
+    .btn-checkout:hover, .btn-coupon-apply:hover ,.btn-pay:hover ,.btn-submit:hover ,.icon-link a:hover{
+        background-color: #fff;
+    }
+    .confirm_deletion button:hover{
+        box-shadow: inset 2px 2px 2px #aaaca3;
+    }
+    .main-nav-member-shop .bi-cart:hover + .shopping-cart-hover{
+        display: block;
+    }
+
+    .shopping-cart-hover{
+        width: 300px;
+        position:absolute;
+        right: 10px;
+        top: 80px;
+        z-index: 10;
+        background-color: #fff;
+        padding: 5px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        /* display: none; */
+    }
+    .add-to-cart button:hover {
+        background-color: #fff;
+        }
+
+
+    .catalog-wine-card{
+        width: calc(33.3333% - 30px);
+    }
+
+    /* ******************** subpage-event*/
+    section.event{
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr ;
+        gap: 10px;
+
+    }
+    /* ******************** product*/
+    .product-card{
+        width: calc(33.3333333% - 15px);
+        margin: 2px;
+        max-width: 396px;
+    }
+
+    .product-card-img:hover {
+         width: 70%;
+        
+    }
+
+    /* ******************** about-us*/
+    .our-history, .brewing-beer, .sustainability{
+        display: flex;
+        max-width: 1200px;
+        margin: 20px auto;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    
+    .our-history-img, .brewing-beer-img, .sustainability-img{
+        width: calc(100% / 3 - 40px);
+        height: 400px;
+        
+        
+    }
+    .our-history-txt ,.brewing-beer-txt, .sustainability-txt{
+        width: calc(100% / 3 *  2 - 40px);
+        
+    }
+/* ******************** mainpage*/
+
+    html {
+        font-size: 20px;
+    }
+    .about-us p , .product-slogan p{
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .mainpage-top-cover{
+    min-height: 600px;
+    }
+
+    .mainpage-top-cover-img-top{
+    min-height: 600px;
+
+    }
+    .mainpage-top-cover-title{
+        top: 5rem;
+
+    }
+    .mainpage-find-us-slogan-flex{
+        flex-direction: row;
+        margin: auto;
+        align-items: center;
+    }
+
+    .mainpage-find-us-slogan h2{
+        font-size: 7.5rem;
+        line-height: 5.3rem;
+    }
+    .mainpage-find-us-picture{
+        height: 300px;
+    }
+
+    .lineup-backword{
+    line-height: 700px;
+
+    }
+    .lineup-card{
+        width: 651041%;
+    }
+    .lineup-card-img{
+        width: 200px;
+        height: 700px;
+        transform: translateX(-40%) 
+                   rotate(30deg);
+    }
+    .lineup-card-img:hover{
+        transform: translateX(-40%)  rotate(25deg);
+    }
+    .lineup-card{
+        position: absolute;
+        bottom: 20px;
+        right: 20%;
+        width: 40%;
+    }
+/* ******************** mainpage-event*/
+
+    .event-list {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,1fr);
+        margin: 10px;
+    }
+    .event-list .event-card{
+        background-size: cover;
+    }
+    .mainpage .event-card:first-child{
+        grid-row:span 2;
+        grid-column: span 2;
+    }
+
+    .event-list .event-card{
+        width: calc(100% / 3  -20px);
+
+    }
+    .event-list .event-card:first-child{
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+/* ******************** mainpage-follow*/
+    .mainpage-follow-tag h3{
+        text-align: left;
+        padding-left: 2rem;
+
+    }
+    section .mainpage-follow-tag h2{
+        font-size: 5rem;
+        line-height: 5rem;
+    }
+
+    .follow-img-box .col{
+        display: flex;
+        gap: 10px;
+
+    }
+    .follow-img-col{
+        width: 50%
+
+    }
+    .follow-img-col.-top{
+        transform: translateY(50px);
+    }
+
+
+
+
+    .mainpage-follow-tag h2:hover{
+        color: #F6D042;
+    }
+    .main-nav>a:hover, .main-nav-member-shop> a >.bi:hover{
+        color: #fff;
+        background-color: #006837;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+    }
+
+    
+    .main-nav .block, .main-nav-member-shop .block{
+        background-color: #006837;
+        color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    } 
+
+    .btn a:hover{
+        background-color: #fff;
+        color: #006837;
+    }
+
+
+
+    .our-product{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row-reverse;
+        width: 80%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .our-product-slogan{
+        width: 50%;
+    }
+    .our-product-img {
+        width: 50%;
+    }
+
+}
+
+@media screen and (min-width: 1024px){
+    .catalog-wine-card{
+        width: calc(25% - 30px);
+    }
+
+
+    html {font-size: 24px;}
+    
+    .main-nav a{
+        min-width: 120px;
+    }
+
+    .mainpage-top-cover{
+    min-height: 800px;
+    }
+
+    .mainpage-top-cover-img-top{
+    min-height: 800px;
+
+    }
+    .mainpage-top-cover-title{
+        top: 5rem;
+    }
+
+    .mainpage-find-us-picture{
+        height: 400px;
+    }
+
+
+    .lineup-backword{
+    line-height: 800px;
+
+    }
+    .lineup-card-img{
+        width: 200px;
+        height: 800px;
+        transform: translateX(-65%) 
+                   rotate(30deg);
+    }
+    .lineup-card-img:hover{
+        transform: translateX(-40%)  rotate(25deg);
+    
+    }
+    .lineup-card{
+        position: absolute;
+        bottom: 20px;
+        right: 10%;
+        width: 45%;
+    }
+
+/* ******************** mainpage-follow*/
+    .mainpage-follow-tag h3{
+        text-align: left;
+    }
+    section .mainpage-follow-tag h2{
+        font-size: 7rem;
+    }
+
+    .lineup-backword{
+        font-size: 9rem;
+    }
+
+    .follow-img-box .col{
+        display: flex;
+        gap: 10px;
+    }
+/* ******************** subpage-event*/
+section.event{
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px;
+
+}
+
+.event-card:first-child, .event-card:nth-child(6) {
+    grid-row: span 2;
+    grid-column : span 2;
+    
+}
+.event-card:nth-child(5){
+    grid-row-start: 4;
+    grid-row-end:5 ;
+}
+
+
+}
+    @media screen and (min-width: 1200px){
+        html {font-size: 24px;}
+        section h2 {
+            font-size: 5rem;
+        }
+        .mainpage-top-cover{
+            min-height: 1000px;
+            }
+        
+        .mainpage-top-cover-img-top{
+        min-height: 1000px;
+
+        }
+
+        .lineup-card{
+            width: 50%;
+        }
+    }
+
+
+      
