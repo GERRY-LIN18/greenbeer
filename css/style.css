@@ -126,6 +126,9 @@ section h2{
     line-height: 5rem;
 }
 
+.bg-color-F6D042{
+    background-color: #F6D042;
+}
 /* ******************** header*/
 
 .warning-sign, .main-header, .main-header-bg {
@@ -1392,4 +1395,11 @@ h1{
     width: 30%;
     margin: auto;
     padding: 5px;
+}
+.learning-word , .learning-word a{
+    font-size: 12px;
+    line-height: 12px;
+    color: #aaa;
+    max-width: 1200px;
+    margin: auto;
 }

@@ -47,20 +47,9 @@
             </div>
     </header>
 
-    <section class="sub-page-top-cover">
-        <div class="sub-page-top-cover-img">
-            <div class="sub-page-top-cover-img-top">
-                <img src="pic/beer_12.jpg" alt="sub-page-top-cover">
-            </div>
-            <div class="sub-page-top-cover-img-down">
-                <img src="pic/subpage_down_white.png" alt="bg-white">
-            </div>
-        </div>
-        <div class="sub-page-top-cover-title">
-            <h1 class="greenbeer">GREENStore</h1>
-        </div>
-    </section>
-
+    @@include('layout/subpage_topcover.html',{
+        'title': "GREENBEER Store"
+    })
     <section class="checkoutPage-cart">
         <h2>SHOPPING CART</h2>
 

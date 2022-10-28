@@ -7,6 +7,7 @@
 </head>
 <body>
     @@include('layout/warning_sign.html')
+
     <div class="main-header-bg"></div>
     <input type="checkbox" name="" id="menu-switch"> 
     <header class="main-header">
@@ -50,19 +51,10 @@
             </div>
     </header>
 
-    <section class="sub-page-top-cover">
-        <div class="sub-page-top-cover-img">
-            <div class="sub-page-top-cover-img-top">
-                <img src="pic/beer_12.jpg" alt="page-top-cover">
-            </div>
-            <div class="sub-page-top-cover-img-down">
-                <img src="pic/subpage_down_white.png" alt="bg-white">
-            </div>
-        </div>
-        <div class="sub-page-top-cover-title">
-            <h1 class="greenbeer">The GREENBEER story</h1>
-        </div>
-    </section>
+    @@include('layout/subpage_topcover.html',{
+        'title': "The GREENBEER story"
+    })
+
 
     <section class="about-us" >
         <div class="taiwan-leader">
@@ -79,9 +71,7 @@
                 <h2>GREENBEER heritage</h2>
                 <p>How passion, innovation, family dynamics, and a little thing called A-Yeast led the GREEN family to create the world’s most international premium beer.</p>
             </div>
-
         </div>
-
 
         <div class="brewing-beer">
             <div  class="brewing-beer-img">

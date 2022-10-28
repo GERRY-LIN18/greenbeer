@@ -17,6 +17,6 @@ exports.html =function includeHTML(){
             prefix :'@@',
             basepath: '@file'
         }))
-        .pipe(dest('dist'));
+        .pipe(dest('./'));
 }
 
