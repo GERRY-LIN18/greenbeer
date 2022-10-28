@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The origin | GREENBEER</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/rwd.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Boogaloo&display=swap');
-    body {
-        font-family: "Trebuchet MS", Helvetica, sans-serif;
-    }
-</style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The origin | GREENBEER</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rwd.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Acme&family=Boogaloo&display=swap');
+        body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
     <div class="warning-sign">
@@ -205,201 +205,29 @@
         </div>
     </section>
 
-    <section class="mainpage-follow">
-    <div class="container">
-      <div class="mainpage-follow-tag">
-          <h3>FOLLOW</h3>
-          <h2>@GREENBEER</h2>
-      </div>
+    <footer>
+        <div class="">STAY IN THE KNOW</div>
+        <p>Monthly servings of GREENBEER news, events, offers and chances to win!</p>
+        <label for=""><input type="text" placeholder="email"></label>
 
-      <div class="follow-img-box">
-
-          <div class="col">
-              <div class="follow-img-col -top">
-                  <div class="follow-img">
-                      <img src="pic/beer_06.jpg" alt="cheers">
-                  </div>
-                  <div class="follow-img">
-                      <img src="pic/beer_08.avif" alt="beer ice bucket">
-                  </div>
-                  <div class="follow-img">
-                      <img src="pic/beer_14.jpg" alt="table wine">
-                  </div>
-              </div>
-  
-              <div class="follow-img-col ">
-                  <div class="follow-img">
-                      <img src="pic/beer_11.jpg" alt="The hops are sprayed everywhere">
-                  </div>
-                  <div class="follow-img">
-                      <img src="pic/beer_02.jpg" alt="full beer fridge">
-                  </div>
-                  <div class="follow-img">
-                      <img src="pic/beer_01.jpg" alt="black beer">
-                  </div>
-              </div>
-          </div>
-
-          <div class="col">
-              <div class="follow-img-col -top">
-                  <div class="follow-img">
-                      <img src="pic/beer_04.webp" alt="hop eruption">
-                  </div>
-                  <div class="follow-img">
-                      <img src="pic/beer_13.jpg" alt="crystal clear glass">
-                  </div>
-                  <div class="follow-img">
-                      <img src="pic/beer_15.jpg" alt="beer bubbles">
-                  </div>
-                  <div class="follow-img">
-                      <img src="pic/beer_16.jpg" alt="beer mug cheers">
-                  </div>
-              </div>
-  
-              <div class="follow-img-col ">
-                  <div class="follow-img">
-                      <img src="pic/beer_10.jpg" alt="Drink near the pool">
-                  </div>
-                  <div class="follow-img">
-                      <img src="pic/beer_07.jpg" alt="beer event">
-                  </div>
-                  <div class="follow-img">
-                      <img src="pic/beer_12.jpg" alt="medicinal wine">
-                  </div>
-  
-              </div>
-          </div>
-          
-      </div>
-    </div>
-  </section>
-
-
-    <script>
-
-        $(document).ready(function(){
-
-
-            let n=0
-            let x
-            let timer
-            function run(){
-
-                n+=1
-                $('.other_products_view').scrollLeft(n)
-                // console.log(x)
-                
-                
-                x=$('.other_products_view').scrollLeft()
-                // console.log(x)
-                
-                $('.other_products_view').offset().width
-            }
-
-            timer = setInterval( run , 10)
-            
-
-            $('.other_products_view').mouseenter(function(){
-                clearInterval(timer)
-            }).mouseleave(function(){
-                timer = setInterval( run , 10);
-            })
-
-// 捲軸的寬度＝內容的完整寬度 (child.offsetWidth) 減去內容實際的寬度 (parent.clie
-
-
-            
-            $('.table_box_click').css('height', $('.table_box').height())
-            $('#nutritional_value').on('click',function(){
-
-                $('.table_box').toggleClass('table_box_click')
-                setTimeout(function(){
-                    $('.bi-chevron-down').toggleClass('bi-chevron-up')
-                },500)
-            });
-            
-            var box=$(".other_products");
-            var body=$('body');
-            var index=0;
-            var x1;
-            box.mousedown(function(){
-                index=1;       //滑鼠按下才能觸發onmousemove方法
-                var x=event.clientX;   //滑鼠點選的座標值，x
-                var left= this.style.left;
-                console.log(left)
-                left=left.substr(0,left.length-2);  //去掉px
-                x1=parseInt(x-left);
-            });
-            box.mousemove(function(){
-                if(index===1){
-                this.style.left=event.clientX-x1+'px';
-                if(this.style.left.substr(0,this.style.left.length-2)<0){
-                    this.style.left=0;
-                };
-                if(this.style.left.substr(0,this.style.left.length-2)> $('.other_products_view').width()){
-                    this.style.left=$('.other_products_view').width();
-                };
-                }
-            });
-            box.mouseup(function(){
-                index=0;
-            });
-            body.mouseup(function(){
-                index=0;
-            });
-
-            // var posX
-            // let xxx
-            // $('.other_products_view').mouseenter(function(){
-            //     console.log('ENTER')
-            // })
-            // $('.other_products_view').mousedown(function () {
-            //     posX = $('.other_products').offset().left;
-            //         console.log( posX)
-                
-            //         console.log('A')
-
-            // });
-
-
-            //     $('.other_products').css({transform: `translateX( ${xxx}px )`});
-            // }).mouseup(function(){
-            //     $(this).off("mousemove");
-            //     if (xxx < -1680 ){   
-            //         console('AAA')
-            //         $('.other_products').css({transform: `translateX( 0px )`});
-            //     } else if(xxx > 0 ){
-            //         console.log('BBB')
-            //         $('.other_products').css({transform: `translateX( 0px )`});
-                    
-            //     }else
-                // $('.other_products').css({transform: `translateX( ${xxx}px )`});
-            // })
-
-        })
-    </script>
-        <footer>
-    <div class="">STAY IN THE KNOW</div>
-    <p>Monthly servings of GREENBEER news, events, offers and chances to win!</p>
-    <label for=""><input type="text" placeholder="email"></label>
-
-    <div><button class="btn-submit" >SUBMIT</button></div>
-    <div class="icon-link">
-        <p>
-        <a href=""><i class="bi bi-facebook"></i>
-        </a>
-        <a href=""><i class="bi bi-instagram"></i>
-        </a>
-        <a href=""><i class="bi bi-youtube"></i>
-        </a>
-        </p>
-    </div>
-    <div class="learning-word">
-        This website is the special work of the 79th student of the TibaMe_ front-end design engineer class of Wisdom Education. This platform is only for learning and display purposes. If there is a conflict with the relevant copyright, or a third party claims to infringe on intellectual property rights, etc., the students are legally responsible, and Weiyu Company is not responsible. If you have any concerns about infringement, you can send a private message to <a href="https://www.facebook.com/TibaMe">[TibaMe]</a>, and a dedicated person will assist you in the follow-up.
-    </div>
-</footer>
-            <script src="js/event_click.js"></script>
+        <div><button class="btn-submit" >SUBMIT</button></div>
+        <div class="icon-link">
+            <p>
+            <a href=""><i class="bi bi-facebook"></i>
+            </a>
+            <a href=""><i class="bi bi-instagram"></i>
+            </a>
+            <a href=""><i class="bi bi-youtube"></i>
+            </a>
+            </p>
+        </div>
+        <div class="learning-word">
+            This website is the special work of the 79th student of the TibaMe_ front-end design engineer class of Wisdom Education. This platform is only for learning and display purposes. If there is a conflict with the relevant copyright, or a third party claims to infringe on intellectual property rights, etc., the students are legally responsible, and Weiyu Company is not responsible. If you have any concerns about infringement, you can send a private message to <a href="https://www.facebook.com/TibaMe">[TibaMe]</a>, and a dedicated person will assist you in the follow-up.
+        </div>
+    </footer>
+    <script src="js/event_click.js"></script>
     <script src="js/shopping_cart.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/product_flow.js"></script>
 </body>
 </html>
