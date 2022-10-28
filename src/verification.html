@@ -5,10 +5,7 @@
     </style>
 </head>
 <body class = "bg-color-F6D042">
-    <div class="warning-sign">
-        <p class="warning-sign-slogan">
-            To secure your safety, do not drink and drive.<br>Please do not drink if you are a minor</p>
-    </div>
+    @@include('layout/warning_sign.html')
 
     <div class="verification">
         <h1>Please tell us your date of birth</h1>
@@ -28,12 +25,12 @@
             let expY = new RegExp(/^[1-2][0-9][0-9][0-9]/);
 
             $('input').keyup(function(){
-                console.log(expD.test($('#day').val()))
-                console.log(expM.test($('#month').val()))
-                console.log(expY.test($('#year').val()))
+                // console.log(expD.test($('#day').val()))
+                // console.log(expM.test($('#month').val()))
+                // console.log(expY.test($('#year').val()))
                 
                 if( expD.test($('#day').val()) && expM.test($('#month').val()) && expY.test($('#year').val())){
-                    console.log('格式正確')
+                    // console.log('格式正確')
 
                     if( $('#day').val().length == 2 && $('#month').val().length == 2 && $('#year').val().length == 4 &&
                     $('#day').val()>=1 && $('#day').val()<=31 &&
@@ -43,11 +40,11 @@
 
 
                     }else{
-                            console.log('數字錯誤')
+                            // console.log('數字錯誤')
                             $('#verification_submit').prop('disabled',true).removeClass("verifyPass")
                     }
                 }else{
-                    console.log('格式錯誤')
+                    // console.log('格式錯誤')
 
                     $('#verification_submit').prop('disabled',true).removeClass("verifyPass")
                 }
