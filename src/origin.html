@@ -192,8 +192,7 @@
             </div>
         </div>
     </section>
-    @@include('layout/footer.html')
-    @@include('layout/script.html')
+
     <section class="mainpage-follow">
         <div class="container">
           <div class="mainpage-follow-tag">
@@ -298,9 +297,6 @@
 // 捲軸的寬度＝內容的完整寬度 (child.offsetWidth) 減去內容實際的寬度 (parent.clie
 
 
-
-
-
             
             $('.table_box_click').css('height', $('.table_box').height())
             $('#nutritional_value').on('click',function(){
@@ -371,5 +367,7 @@
 
         })
     </script>
+        @@include('layout/footer.html')
+        @@include('layout/script.html')
 </body>
 </html>
