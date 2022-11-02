@@ -16,8 +16,10 @@
             font-family: "Trebuchet MS", Helvetica, sans-serif;
         }
     </style>
+    <script src="https://unpkg.com/vue@next"></script>
+
 </head>
-<body>
+<body  id="app">
 
 
     <div class="warning-sign">
@@ -49,7 +51,7 @@
                 <a href="shopping_cart.html">
                     <i class="bi bi-cart"></i>
                 </a>
-                <div class="shopping-cart-hover">
+                <div class="shopping-cart-hover" style="display: block;">
                     <div class="shopping-cart-box">
                         <div class="shopping-cart-box-title">
                             <div class="cart-item">Item</div>
@@ -60,6 +62,17 @@
                         <div class="empty-cart">
                             it's Empty 
                         </div>
+                        <div class="shopping-cart-box-purchase-item" v-for="(item , index) in catalog">
+                            <div class="purchase-cart-item">
+                                    <div class="purchase-cart-item-img">
+                                        <img :src="item.src" alt="">
+                                    </div>
+                                </div>
+                                <div class="purchase-cart-price">${{item.price}}</div>
+                                <div class="purchase-cart-quantity">
+                                    <input type="number" placeholder=""  v-model="item.num"></div>
+                                <div class="purchase-cart-icon-cancel"><i class="bi bi-x-lg"></i></div>
+                            </div>
 
                     </div>
                     <a href="shopping_cart.html" id="go_shopping_cart">
@@ -87,14 +100,23 @@
     </section>
 
 
-    <section class="page-greenstore">
+    <section class="page-greenstore" >
         <div class="container">
             <div class="catalog">
                 <p>Something can be bought only here.About Greenbeer.</p>
             </div>
-    
+            
             <div class="catalog-wine-box">
-                
+                <div class="catalog-wine-card" v-for="(item , index) in catalog"  :key="item.src">
+                    <div class="catalog-wine-card-img">
+                        <img :src="item.src" alt="">
+                        </div>
+                    <div class="catalog-wine-card-name">{{item.cardName}}</div>
+                <div class="catalog-wine-card-price">${{item.price}}</div>
+                <div class="add-to-cart">
+                    <input type="number" placeholder="1" min="1" v-model="num[index]">
+                    <button @click="addCart(item, num[index])">ADD TO CART</button></div>
+                </div>
             </div>
         </div>
         <p class="cartTips">Add to cart successfully</p>
@@ -120,9 +142,40 @@
             This website is the special work of the 79th student of the TibaMe_ front-end design engineer class of Wisdom Education. This platform is only for learning and display purposes. If there is a conflict with the relevant copyright, or a third party claims to infringe on intellectual property rights, etc., the students are legally responsible, and Weiyu Company is not responsible. If you have any concerns about infringement, you can send a private message to <a href="https://www.facebook.com/TibaMe">[TibaMe]</a>, and a dedicated person will assist you in the follow-up.
         </div>
     </footer>
-    <script src="js/event_click.js"></script>
-    <script src="js/shopping_cart.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/product_flow.js"></script>
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    catalog : [{
+                        src :'pic/shop_01.png',
+                        cardName : 'green glass cup',
+                        price : 500,
+                        num : 0
+                        
+                    },{
+                        src :'pic/shop_02.png',
+                        cardName : 'green steel cup',
+                        price : 400,
+                        num : 0
+                    },{
+                        src :'pic/shop_03.png',
+                        cardName : 'green lighter',
+                        price : 800 ,
+                        num : 0
+                    }],
+
+                    num:[0,0,0]
+                }
+            },
+            methods:{
+                addCart(item, index){
+                    item.num += index ;
+                }
+            }
+        }).mount('#app')
+        
+
+    </script>
+
 </body>
 </html>

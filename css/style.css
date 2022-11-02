@@ -715,7 +715,7 @@ div[class^="sub-page-top-cover-img-"]  img{
 
 .purchase-cart-item-img img,
 .purchaseCheck_Item_img img{
-    object-fit: fill;
+    object-fit: contain;
 }
 
 .purchase-cart-item-name ,.purchaseCheck_Item_name{
